@@ -7,7 +7,7 @@
 
 	--hue: 0;
 	--accent: hsla(var(--hue), 0%, 30%, 1);
-	--base:  	hsla(var(--hue), 0%, 100%, 1);
+	--base:  	hsla(var(--hue), 0%, 95%, 1);
 
 	--primary-light: hsla(var(--hue), 0%, 90%, 1);
 	--primary-medium: hsla(var(--hue), 0%, 60%, 1);
@@ -26,18 +26,18 @@
 }
 
 :root .dark {
-	--accent: hsla(var(--primary-hue), 32%, 80%, 1);
-	--base:  	hsla(var(--primary-hue), 5%, 10%, 1);
+	--accent: hsla(var(--hue), 0%, 80%, 1);
+	--base:  	hsla(var(--hue), 0%, 10%, 1);
 
-	--primary-light: hsla(var(--seconday-hue), 8%, 50%, 1);
-	--primary-medium: hsla(var(--seconday-hue), 13%, 80%, 1);
-	--primary-dark: hsla(var(--seconday-hue), 13%, 90%, 1);
-	--primary-transparent: hsla(var(--seconday-hue), 13%, 90%, .5);
+	--primary-light: hsla(var(--hue), 0%, 5%, 1);
+	--primary-medium: hsla(var(--hue), 0%, 60%, 1);
+	--primary-dark: hsla(var(--hue), 0%, 90%, 1);
+	--primary-transparent: hsla(var(--hue), 0%, 90%, .25);
 
 	--outline-color: var(--primary-transparent);
 
-	--white: hsla(var(--white-hue), 14%, 10%, 1);
-	--white-dark: hsla(var(--white-hue), 14%, 30%, 1);
+	--white: hsla(var(--hue), 0%, 10%, 1);
+	--white-dark: hsla(var(--hue), 0%, 20%, 1);
 	
 	color: var(--primary-dark);
 }

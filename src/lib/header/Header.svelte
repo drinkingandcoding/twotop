@@ -74,6 +74,6 @@
 
 
 	a:hover {
-		color: var(--accent);
+		color: var(--primary-light);
 	}
 </style>
