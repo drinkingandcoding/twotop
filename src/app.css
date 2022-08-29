@@ -22,6 +22,8 @@
 	--global-padding-x: 16px;
 	--global-padding-y: 6px;
 	--global-border-radius: 6px;
+	
+	--global-letter-spacing: .03em;
 
 }
 
@@ -60,6 +62,8 @@ p {
 	font-weight: 400;
 	color: var(--primary-dark);
 	margin-bottom: 16px;
+  text-transform: lowercase;
+  letter-spacing: var(--global-letter-spacing);
 }
 
 p {
@@ -70,13 +74,8 @@ a {
 	color: var(--accent);
 }
 
-a:hover {
-	background-color: var(--accent);
-	color: var(--white);
-}
-
 h1 {
-	font-size: 2rem;
+	font-size: 1.75rem;
 	text-align: center;
 }
 
@@ -90,8 +89,10 @@ button {
 	font-family: inherit;
 }
 
-@media (min-width: 720px) {
-	h1 {
-		font-size: 2.4rem;
-	}
+:global(.hidden) {
+	display: none;
+}
+
+dl, ul {
+	margin: 0;
 }

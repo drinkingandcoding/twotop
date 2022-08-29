@@ -216,7 +216,7 @@
 
   .formLabel {
     font-weight: bold;
-    text-transform: uppercase;
+    text-transform: lowercase;
     font-size: .8rem;
     color: var(--primary-medium);
     grid-area: 1 / 1 / 2 / 4;

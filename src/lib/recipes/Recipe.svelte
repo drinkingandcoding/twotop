@@ -5,6 +5,9 @@
   import type { RecipeInterface } from '$lib/data/recipes';
   import DescriptionTerm from '$lib/List/DescriptionTerm.svelte';
   import DescriptionDetails from '$lib/List/DescriptionDetails.svelte';
+  import Card from '$lib/card/Card.svelte';
+  import CardBody from '$lib/card/CardBody.svelte';
+  import CardHeader from '$lib/card/CardHeader.svelte';
   export let data:RecipeInterface;
 </script>
 
@@ -27,47 +30,41 @@
   {/if}
 
   <!-- Ingredients -->
-  <div class="section recipe_ingredients">
-    <h2 class="section_title">Ingredients</h2>
-    <UnorderedList>
-      {#each data.ingredients as ingredient}
-        <ListItem item={ingredient}/>
-      {/each}
-    </UnorderedList>
-  </div>
+  <Card class="section recipe_ingredients">
+    <CardHeader><h2 class="section_title">Ingredients</h2></CardHeader>
+    <CardBody>
+      <UnorderedList>
+        {#each data.ingredients as ingredient}
+          <ListItem item={ingredient}/>
+        {/each}
+      </UnorderedList>
+    </CardBody>
+  </Card>
 
   <!-- Instructions -->
-  <div class="section recipe_instructions">
-    <h2 class="section_title">Instructions</h2>
-    <dl>
-      {#each data.instructions as instruction}
-        <DescriptionTerm item={instruction.name}/>
-        <DescriptionDetails item={instruction.text}/>
-      {/each}
-    </dl>
-  </div>
+  <Card class="section recipe_instructions">
+    <CardHeader><h2 class="section_title">Instructions</h2></CardHeader>
+    <CardBody>
+      <dl>
+        {#each data.instructions as instruction}
+          <DescriptionTerm item={instruction.name}/>
+          <DescriptionDetails item={instruction.text}/>
+        {/each}
+      </dl>
+    </CardBody>
+  </Card>
 </div>
 
 <style>
-  .section {
+  :global(.section) {
     margin-bottom: 24px;
   }
 
   .section_title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
     color: var(--accent);
-  }
-
-  .section_title:after {
-    width: 250px;
-    height: 2px;
-    background-color: var(--accent);
-    position: relative;
-    content: "";
-    bottom: 0;
-    display: block;
   }
 
 
