@@ -34,7 +34,7 @@
   width: 100%;
   bottom: 0;
   border-top: 2px solid var(--accent);
-  border-radius: 5px;
+  border-radius: var(--global-border-radius);
   background: var(--base);
   display: none;
 }
@@ -56,8 +56,8 @@ a {
   align-items: center;
   font-weight: 500;
   font-size: 0.4rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  letter-spacing: var(--global-letter-spacing);
   text-decoration: none;
   padding: 5px 0;
 }

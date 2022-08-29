@@ -1,11 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import AuthButton from '$lib/auth/authButton.svelte';
+	import Logo from '$lib/logo/Logo.svelte';
 </script>
 
 <header class="desktopNav">
-	<div class="brand">
-		twotop
-	</div>
 	<nav>
 		<ul>
 			<li class:active={$page.url.pathname === '/'}><a sveltekit:prefetch href="/">Home</a></li>
@@ -17,28 +16,36 @@
 			</li>
 		</ul>
 	</nav>
+	<div class="brand">
+		<Logo/>
+	</div>
+	<AuthButton class="headerButton"/>
 </header>
 
 <style>
 
 	header {
-		display: flex;
-		justify-content: space-between;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
 		align-items: center;
 		background-color: var(--base);
-		border-bottom: 2px solid var(--primary-dark);
+		padding: 12px 12px 0 12px;
+	}
+
+	.brand { 
+		justify-self: center;
 	}
 
 	nav {
 		display: flex;
-		justify-content: center;
+		justify-self: left;
 	}
 
 	ul {
 		position: relative;
 		padding: 0;
 		margin: 0;
-		height: 3em;
+		height: 2em;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -50,15 +57,15 @@
 		height: 100%;
 	}
 	
-	li.active {
+	li.active:after, li:hover::after {
+		content: "";
+		width: 95%;
+		height: 2px;
 		background-color: var(--accent);
+		display: block
 	}
 
-	li.active a {
-		color: var(--base);
-	}
-
-	.brand, nav a {
+	.brand, nav a, :global(.headerButton) {
 		display: flex;
 		height: 100%;
 		align-items: center;
@@ -66,14 +73,19 @@
 		color: var(--primary-dark);
 		font-weight: 700;
 		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
+		text-transform: lowercase;
+		letter-spacing: var(--global-letter-spacing);
 		text-decoration: none;
-		transition: all 0.2s linear;
+	}
+	:global(.headerButton) {
+		border: none;
+		background-color: var(--base);
+		cursor: pointer;
+		justify-self: right;
 	}
 
-
-	a:hover {
-		color: var(--primary-light);
+	:global(.headerButton):hover, :global(.headerButton.open) {
+		border: 1px solid var(--accent);
 	}
+
 </style>

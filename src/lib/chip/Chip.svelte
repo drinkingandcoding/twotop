@@ -6,9 +6,10 @@
 
 <style>
   .chip {
-    background: var(--accent);
+    background: var(--primary-medium);
     padding: 5px 15px;
-    border-radius: 15px;
+    border-radius: var(--global-border-radius);
+    letter-spacing: var(--global-letter-spacing);
     color: var(--base);
     margin: 0 5px;
     font-size: .8rem;

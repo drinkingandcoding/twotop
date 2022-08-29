@@ -16,8 +16,8 @@
     border-radius: var(--global-padding-y);
     font-weight: 700;
 		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
+		text-transform: lowercase;
+		letter-spacing: var(--global-letter-spacing);
     color: var(--primary-dark);
   }
 
@@ -32,7 +32,7 @@
     border: none;
     outline: none;
     font-weight: bold;
-    text-transform: uppercase;
+    text-transform: lowercase;
     font-size: .8rem;
     color: var(--primary-medium);
   }
