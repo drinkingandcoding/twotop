@@ -225,7 +225,7 @@
 
   .formInput {
     background: var(--white);
-    border: 1px solid var(--grey);
+    border: 1px solid var(--outline-color);
     color: var(--primary-dark);
     padding: var(--global-padding-y) var(--global-padding-x);
     padding-left: 5px;

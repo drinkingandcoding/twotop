@@ -10,7 +10,7 @@
     background-color: var(--white);
     border: none;
     cursor: pointer;
-    outline: 1px solid var(--grey);
+    outline: 1px solid var(--outline-color);
     display: inline-block;
     padding: var(--global-padding-y) var(--global-padding-x);
     border-radius: var(--global-padding-y);
