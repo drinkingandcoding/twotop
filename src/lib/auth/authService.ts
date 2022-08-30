@@ -14,7 +14,7 @@ async function loginWithPopup(client:Auth0Client, options?:Auth0ClientOptions) {
   popupOpen.set(true);
   try {
     await client.loginWithPopup(options);
-
+    console.log(client);
     user.set(await client.getUser() || {});
     isAuthenticated.set(true);
   } catch (e) {

@@ -2,7 +2,6 @@
   import { goto } from "$app/navigation";
   import DropdownItem from "$lib/dropdown/DropdownItem.svelte";
   import { createPopper } from "@popperjs/core";
-  import Button from "$lib/button/Button.svelte";
 
   export let logout:() => void;
   export let user:any;
@@ -26,7 +25,7 @@
 </script>
 
 <button type="button" bind:this={btnDropdownRef} on:click={toggleDropdown} class={`${$$props.class} ${dropdownPopoverShow ? "open" : "closed"}`}>
-  hey, {user.nickname}
+  hey, {user.username}
 </button>
 <div bind:this={popoverDropdownRef} class={`dropdownMenu ${dropdownPopoverShow ? "open" : "closed"}`}>
   <DropdownItem on:click={() => goto("/me")}>

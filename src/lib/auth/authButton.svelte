@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import auth from "$lib/auth/authService";
   import { isAuthenticated, user } from "$lib/stores";
-  import UserDropdown from "$lib/dropdown/UserDropdown.svelte";
+  import UserDropdown from "$lib/user/UserDropdown.svelte";
   import type { Auth0Client } from "@auth0/auth0-spa-js";
 
   let auth0Client:Auth0Client;
