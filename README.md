@@ -31,4 +31,4 @@ You can preview the production build with `npm run preview`.
 
 ## Auth
 
-If needing test auth, let Ryan know and he'll supply creds.
+If needing test auth, let Ryan know and he'll supply creds!
