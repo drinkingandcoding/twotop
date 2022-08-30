@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<title>Recipe</title>
+	<title>recipe | twotop</title>
 	<meta name="Recipe | twotop" content="twotop recipe" />
 </svelte:head>
 

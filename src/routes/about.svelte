@@ -15,7 +15,7 @@
 </script>
 
 <svelte:head>
-	<title>About</title>
+	<title>about | twotop</title>
 	<meta name="description" content="About this app" />
 </svelte:head>
 

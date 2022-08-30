@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>Me | twotop</title>
+	<title>me | twotop</title>
 	<meta name="Me | twotop" content="build recipes" />
 </svelte:head>
 

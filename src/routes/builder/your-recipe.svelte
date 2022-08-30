@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-	<title>Recipe</title>
+	<title>your recipe | twotop</title>
 	<meta name="Builder | twotop" content="twotop builder recipe" />
 </svelte:head>
 
