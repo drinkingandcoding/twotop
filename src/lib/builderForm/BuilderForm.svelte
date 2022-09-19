@@ -151,6 +151,17 @@
     {/if}
   </div>
 
+  <!-- Yield -->
+  <div class="formGroup">
+    <label class="formLabel" for="yield">Yield</label>
+    <input class="formInput"
+      id="yield"
+      name="yield"
+      bind:value={recipeYield}
+      placeholder="4"
+    />
+  </div>
+
   <!-- Ingredients -->
   <div class="formGroup">
     <label class="formLabel" for="ingredients">Ingredients</label>
@@ -168,17 +179,6 @@
         {/each}
       </UnorderedList>
     {/if}
-  </div>
-
-  <!-- Yield -->
-  <div class="formGroup">
-    <label class="formLabel" for="yield">Yield</label>
-    <input class="formInput"
-      id="yield"
-      name="yield"
-      bind:value={recipeYield}
-      placeholder="4"
-    />
   </div>
 
   <!-- Instructions -->
