@@ -29,6 +29,13 @@
     </div>
   {/if}
 
+  <!-- Yield information -->
+  {#if data.yield }
+    <div class="section recipe_author">
+      <span>Yields <b>{data.yield}</b> portions</span> 
+    </div>
+  {/if}
+
   <!-- Ingredients -->
   <Card class="section recipe_ingredients">
     <CardHeader><h2 class="section_title">Ingredients</h2></CardHeader>
