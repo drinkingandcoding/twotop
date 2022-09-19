@@ -14,8 +14,9 @@
   let keywordList:string[] = $currentBuilderStatus.keywords;
   let ingredientList:string[] = $currentBuilderStatus.ingredients;
   let instructionList:InstructionsInterface[] = $currentBuilderStatus.instructions;
+  let recipeYield: string = $currentBuilderStatus.yield;
 
-  // Ingredients
+  // Keywords
   let keyword:string;
   const handleAddKeyword = () => {
     keywordList = keyword ? [...keywordList, keyword] : [...keywordList];
@@ -40,8 +41,8 @@
   }
 
   // Instructions
-  let instructionStep:string;
-  let instructionName:string;
+  let instructionStep: string;
+  let instructionName: string;
   const handleAddInstruction = () => {
     instructionList = instructionName && instructionStep ? [...instructionList, {name: instructionName, text:instructionStep}] : [...instructionList];
     instructionName = "";
@@ -54,22 +55,23 @@
   }
 
   // Submit
-  const onSubmit = (event:SubmitEvent) => {
+  const onSubmit = (event: any) => {
       let input;
       const formData = new FormData(event.target as HTMLFormElement);
       input = Object.fromEntries(formData.entries())
+      console.log(input)
       updateCurrentBuilderRecipe(input);
   }
 
   // uses "as any" due to some weird ts issue, fix later i guess
-  const updateCurrentBuilderRecipe = (input:any) => {
+  const updateCurrentBuilderRecipe = (input: any) => {
     currentBuilderStatus.set({
       "name": name, // done
       "author": author, // done
       "description": description, // done
       "totalTime": input.totalTime,
       "keywords": keywordList as any, // done
-      "yield": input.yield,
+      "yield": recipeYield, // done
       "category": input.category,
       "cuisine": input.cuisine,
       "nutrition": {
@@ -120,6 +122,7 @@
   <!-- Description -->
   <div class="formGroup">
     <label class="formLabel" for="description">Description</label>
+    <!-- replace this element -->
     <input class="formInput"
       id="description"
       name="description"
@@ -165,7 +168,17 @@
         {/each}
       </UnorderedList>
     {/if}
+  </div>
 
+  <!-- Yield -->
+  <div class="formGroup">
+    <label class="formLabel" for="yield">Yield</label>
+    <input class="formInput"
+      id="yield"
+      name="yield"
+      bind:value={recipeYield}
+      placeholder="4"
+    />
   </div>
 
   <!-- Instructions -->
