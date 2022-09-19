@@ -13,7 +13,7 @@
 
 <div class="recipe">
   <!-- Title -->
-  <h1 class="section receipe_name">{data.name}</h1>
+  <h1 class="section recipe_name">{data.name}</h1>
 
   <!-- Ingredients -->
   <div class="section recipe_keywords">
@@ -25,7 +25,14 @@
   <!-- Author information -->
   {#if data.author }
     <div class="section recipe_author">
-      <span>Receipe by: <a href={data.author.reference}>{data.author.name}</a></span> 
+      <span>Recipe by: <a href={data.author.reference}>{data.author.name}</a></span> 
+    </div>
+  {/if}
+
+  <!-- Yield information -->
+  {#if data.yield }
+    <div class="section recipe_author">
+      <span>Yields <b>{data.yield}</b> portions</span> 
     </div>
   {/if}
 
