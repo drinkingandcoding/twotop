@@ -7,17 +7,18 @@
   import ListItem from "$lib/List/ListItem.svelte";
   import UnorderedList from "$lib/List/UnorderedList.svelte";
   import { currentBuilderStatus } from "$lib/stores.js";
+	import { onMount } from "svelte";
 
-  let name:string = $currentBuilderStatus.name;
-  let author:AuthorInterface = $currentBuilderStatus.author;
-  let description:string = $currentBuilderStatus.description;
-  let keywordList:string[] = $currentBuilderStatus.keywords;
-  let ingredientList:string[] = $currentBuilderStatus.ingredients;
-  let instructionList:InstructionsInterface[] = $currentBuilderStatus.instructions;
+  let name: string = $currentBuilderStatus.name;
+  let author: AuthorInterface = $currentBuilderStatus.author;
+  let description: string = $currentBuilderStatus.description;
+  let keywordList: string[] = $currentBuilderStatus.keywords;
+  let ingredientList: string[] = $currentBuilderStatus.ingredients;
+  let instructionList: InstructionsInterface[] = $currentBuilderStatus.instructions;
   let recipeYield: string = $currentBuilderStatus.yield;
 
   // Keywords
-  let keyword:string;
+  let keyword: string;
   const handleAddKeyword = () => {
     keywordList = keyword ? [...keywordList, keyword] : [...keywordList];
     keyword = "";
@@ -29,7 +30,7 @@
   }
 
   // Ingredients
-  let ingredient:string;
+  let ingredient: string;
   const handleAddIngredient = () => {
     ingredientList = ingredient ? [...ingredientList, ingredient] : [...ingredientList];
     ingredient = "";
@@ -63,6 +64,31 @@
       updateCurrentBuilderRecipe(input);
   }
 
+  const onReset = () => {
+    currentBuilderStatus.set({
+      "name": '',
+      "author": {name: '', reference: ''},
+      "description": '',
+      "totalTime": 0,
+      "keywords": [],
+      "yield": '',
+      "category": '',
+      "cuisine": '',
+      "nutrition": {
+        "calories": ''
+      },
+      "ingredients": [],
+      "instructions": []
+    });
+    name = ''
+    author = {name: '', reference: ''}
+    description = '';
+    keywordList = [];
+    ingredientList = [];
+    instructionList = [];
+    recipeYield = '';
+  }
+
   // uses "as any" due to some weird ts issue, fix later i guess
   const updateCurrentBuilderRecipe = (input: any) => {
     currentBuilderStatus.set({
@@ -82,6 +108,10 @@
     });
     goto("/builder/your-recipe");
   }
+
+  onMount(async () => {
+    onReset();
+  });
 
 </script>
 
@@ -211,7 +241,7 @@
   <!-- Submit -->
   <section class="formActions">
     <Button formType="submit" variant="accent" class="submitButton">Generate Recipe</Button>
-    <Button formType="reset" class="resetButton">Clear</Button>
+    <Button formType="reset" class="resetButton" on:reset={onReset}>Clear</Button>
   </section>
 </form>
 
