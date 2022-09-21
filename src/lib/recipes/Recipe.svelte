@@ -28,6 +28,13 @@
           <span>Recipe by: <a href={data.author.reference}>{data.author.name}</a></span> 
         </div>
       {/if}
+      <!-- Yield information -->
+      {#if data.yield }
+       <div class="section recipe_author">
+         <span>Yields <b>{data.yield}</b> portions</span> 
+       </div>
+      {/if}
+
     </div>
   </div>
 
