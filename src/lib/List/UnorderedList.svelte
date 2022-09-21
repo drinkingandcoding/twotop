@@ -8,7 +8,7 @@
 
 <style>
   .unorderedList{
-    list-style-type: circle;
+    list-style-type: none;
     padding-left: 15px;
   }
 </style>

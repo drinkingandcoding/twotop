@@ -2,11 +2,10 @@
   export let item:string;
 </script>
 
-<dt class="descriptionDetails">{item}</dt>
+<div class="descriptionDetails">{item}</div>
 
 <style>
   .descriptionDetails{
     margin-left: 0;
-    margin-bottom: 20px;
   }
 </style>

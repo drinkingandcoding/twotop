@@ -4,7 +4,7 @@
 
 <style>
   .cardHeader {
-    border-bottom: 1px solid var(--primary-light);
+    /*border-bottom: 1px solid var(--primary-light);*/
     padding: 16px;
     color: var(--accent);
   }

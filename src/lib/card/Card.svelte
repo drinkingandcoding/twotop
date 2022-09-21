@@ -4,7 +4,8 @@
 
 <style>
   .card {
-    border: 1px solid var(--primary-light);
+    background-color: #fff;
+    /*border: 1px solid var(--primary-light);*/
     border-radius: var(--global-border-radius);
   }
 
