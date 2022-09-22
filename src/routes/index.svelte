@@ -1,4 +1,6 @@
 <script context="module" lang="ts">
+	import SearchBar from "$lib/searchbar/SearchBar.svelte";
+
 	export const prerender = true;
 </script>
 
@@ -15,6 +17,7 @@
 	<h2>
 		search for something
 	</h2>
+	<SearchBar />
 
 </section>
 
