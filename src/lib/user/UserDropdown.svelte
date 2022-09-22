@@ -1,63 +1,63 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
-	import DropdownItem from '$lib/dropdown/DropdownItem.svelte';
-	import { createPopper } from '@popperjs/core';
+  import { goto } from '$app/navigation';
+  import DropdownItem from '$lib/dropdown/DropdownItem.svelte';
+  import { createPopper } from '@popperjs/core';
 
-	export let logout: () => void;
-	export let user: any;
+  export let logout: () => void;
+  export let user: any;
 
-	$: dropdownPopoverShow = false;
-	console.log(user);
+  $: dropdownPopoverShow = false;
+  console.log(user);
 
-	let btnDropdownRef: HTMLButtonElement;
-	let popoverDropdownRef: HTMLElement;
+  let btnDropdownRef: HTMLButtonElement;
+  let popoverDropdownRef: HTMLElement;
 
-	const toggleDropdown = () => {
-		if (dropdownPopoverShow) {
-			dropdownPopoverShow = false;
-		} else {
-			dropdownPopoverShow = true;
-			createPopper(btnDropdownRef, popoverDropdownRef, {
-				placement: 'bottom-end'
-			});
-		}
-	};
+  const toggleDropdown = () => {
+    if (dropdownPopoverShow) {
+      dropdownPopoverShow = false;
+    } else {
+      dropdownPopoverShow = true;
+      createPopper(btnDropdownRef, popoverDropdownRef, {
+        placement: 'bottom-end'
+      });
+    }
+  };
 </script>
 
 <button
-	type="button"
-	bind:this={btnDropdownRef}
-	on:click={toggleDropdown}
-	class={`${$$props.class} ${dropdownPopoverShow ? 'open' : 'closed'}`}
+  type="button"
+  bind:this={btnDropdownRef}
+  on:click={toggleDropdown}
+  class={`${$$props.class} ${dropdownPopoverShow ? 'open' : 'closed'}`}
 >
-	hey, {user.username}
+  hey, {user.username}
 </button>
 <div
-	bind:this={popoverDropdownRef}
-	class={`dropdownMenu ${dropdownPopoverShow ? 'open' : 'closed'}`}
+  bind:this={popoverDropdownRef}
+  class={`dropdownMenu ${dropdownPopoverShow ? 'open' : 'closed'}`}
 >
-	<DropdownItem on:click={() => goto('/me')}>My profile</DropdownItem>
-	<div class="separator" />
-	<DropdownItem on:click={logout}>Log out</DropdownItem>
+  <DropdownItem on:click={() => goto('/me')}>My profile</DropdownItem>
+  <div class="separator" />
+  <DropdownItem on:click={logout}>Log out</DropdownItem>
 </div>
 
 <style>
-	.dropdownMenu.open {
-		display: flex;
-		flex-direction: column;
-		width: max-content;
-		position: absolute;
-		border: 1px solid var(--accent);
-		border-top: 0;
-	}
+  .dropdownMenu.open {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    position: absolute;
+    border: 1px solid var(--accent);
+    border-top: 0;
+  }
 
-	.separator {
-		height: 1px;
-		width: 100%;
-		background-color: var(--primary-dark);
-	}
+  .separator {
+    height: 1px;
+    width: 100%;
+    background-color: var(--primary-dark);
+  }
 
-	.dropdownMenu.closed {
-		display: none;
-	}
+  .dropdownMenu.closed {
+    display: none;
+  }
 </style>

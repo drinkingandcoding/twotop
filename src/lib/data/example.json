@@ -1,51 +1,51 @@
 {
-	"name": "Party Coffee Cake",
-	"author": {
-		"name": "Mary Stone",
-		"reference": "https://example.com/mary-stone"
-	},
-	"description": "This coffee cake is awesome and perfect for parties.",
-	"totalTime": 50,
-	"keywords": ["cake for a party", "party"],
-	"yield": "10",
-	"category": "Dessert",
-	"cuisine": "American",
-	"nutrition": {
-		"calories": "270 calories"
-	},
-	"ingredients": [
-		"2 cups of flour",
-		"3/4 cup white sugar",
-		"2 teaspoons baking powder",
-		"1/2 teaspoon salt",
-		"1/2 cup butter",
-		"2 eggs",
-		"3/4 cup milk"
-	],
-	"instructions": [
-		{
-			"name": "Preheat",
-			"text": "Preheat the oven to 350 degrees F. Grease and flour a 9x9 inch pan."
-		},
-		{
-			"name": "Mix dry ingredients",
-			"text": "In a large bowl, combine flour, sugar, baking powder, and salt."
-		},
-		{
-			"name": "Add wet ingredients",
-			"text": "Mix in the butter, eggs, and milk."
-		},
-		{
-			"name": "Spread into pan",
-			"text": "Spread into the prepared pan."
-		},
-		{
-			"name": "Bake",
-			"text": "Bake for 30 to 35 minutes, or until firm."
-		},
-		{
-			"name": "Enjoy",
-			"text": "Allow to cool and enjoy."
-		}
-	]
+  "name": "Party Coffee Cake",
+  "author": {
+    "name": "Mary Stone",
+    "reference": "https://example.com/mary-stone"
+  },
+  "description": "This coffee cake is awesome and perfect for parties.",
+  "totalTime": 50,
+  "keywords": ["cake for a party", "party"],
+  "yield": "10",
+  "category": "Dessert",
+  "cuisine": "American",
+  "nutrition": {
+    "calories": "270 calories"
+  },
+  "ingredients": [
+    "2 cups of flour",
+    "3/4 cup white sugar",
+    "2 teaspoons baking powder",
+    "1/2 teaspoon salt",
+    "1/2 cup butter",
+    "2 eggs",
+    "3/4 cup milk"
+  ],
+  "instructions": [
+    {
+      "name": "Preheat",
+      "text": "Preheat the oven to 350 degrees F. Grease and flour a 9x9 inch pan."
+    },
+    {
+      "name": "Mix dry ingredients",
+      "text": "In a large bowl, combine flour, sugar, baking powder, and salt."
+    },
+    {
+      "name": "Add wet ingredients",
+      "text": "Mix in the butter, eggs, and milk."
+    },
+    {
+      "name": "Spread into pan",
+      "text": "Spread into the prepared pan."
+    },
+    {
+      "name": "Bake",
+      "text": "Bake for 30 to 35 minutes, or until firm."
+    },
+    {
+      "name": "Enjoy",
+      "text": "Allow to cool and enjoy."
+    }
+  ]
 }

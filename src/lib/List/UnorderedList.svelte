@@ -2,12 +2,12 @@
 </script>
 
 <ul class="unorderedList">
-	<slot />
+  <slot />
 </ul>
 
 <style>
-	.unorderedList {
-		list-style-type: none;
-		padding-left: 15px;
-	}
+  .unorderedList {
+    list-style-type: none;
+    padding-left: 15px;
+  }
 </style>

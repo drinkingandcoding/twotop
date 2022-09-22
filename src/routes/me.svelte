@@ -2,12 +2,12 @@
 </script>
 
 <svelte:head>
-	<title>me | twotop</title>
-	<meta name="Me | twotop" content="build recipes" />
+  <title>me | twotop</title>
+  <meta name="Me | twotop" content="build recipes" />
 </svelte:head>
 
 <section>
-	<h1 class="section title">My profile</h1>
+  <h1 class="section title">My profile</h1>
 </section>
 
 <style>

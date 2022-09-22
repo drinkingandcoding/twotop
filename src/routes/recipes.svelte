@@ -1,23 +1,23 @@
 <script context="module" lang="ts">
-	export const prerender = true;
-	import RecipeList from '$lib/recipes/RecipeList.svelte';
+  export const prerender = true;
+  import RecipeList from '$lib/recipes/RecipeList.svelte';
 </script>
 
 <svelte:head>
-	<title>recipes | twotop</title>
-	<meta name="Recipes | twotop" content="twotop recipes" />
+  <title>recipes | twotop</title>
+  <meta name="Recipes | twotop" content="twotop recipes" />
 </svelte:head>
 
 <section>
-	<RecipeList />
+  <RecipeList />
 </section>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
 </style>
