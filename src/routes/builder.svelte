@@ -9,11 +9,9 @@
 
 <section>
 	<!-- Title -->
-  <h1 class="section title">Recipe Builder</h1>
-  <BuilderForm/>
+	<h1 class="section title">Recipe Builder</h1>
+	<BuilderForm />
 </section>
 
 <style>
-
-
 </style>

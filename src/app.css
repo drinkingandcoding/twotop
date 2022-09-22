@@ -7,12 +7,12 @@
 
 	--hue: 0;
 	--accent: hsla(var(--hue), 0%, 30%, 1);
-	--base:  	hsla(var(--hue), 0%, 95%, 1);
+	--base: hsla(var(--hue), 0%, 95%, 1);
 
 	--primary-light: hsla(var(--hue), 0%, 90%, 1);
 	--primary-medium: hsla(var(--hue), 0%, 60%, 1);
 	--primary-dark: hsla(var(--hue), 0%, 5%, 1);
-	--primary-transparent: hsla(var(--hue), 0%, 15%, .15);
+	--primary-transparent: hsla(var(--hue), 0%, 15%, 0.15);
 
 	--white: hsla(var(--hue), 0%, 98%, 1);
 	--white-dark: hsla(var(--hue), 0%, 95%, 1);
@@ -22,25 +22,24 @@
 	--global-padding-x: 16px;
 	--global-padding-y: 6px;
 	--global-border-radius: 6px;
-	
-	--global-letter-spacing: .03em;
 
+	--global-letter-spacing: 0.03em;
 }
 
 :root .dark {
 	--accent: hsla(var(--hue), 0%, 80%, 1);
-	--base:  	hsla(var(--hue), 0%, 10%, 1);
+	--base: hsla(var(--hue), 0%, 10%, 1);
 
 	--primary-light: hsla(var(--hue), 0%, 5%, 1);
 	--primary-medium: hsla(var(--hue), 0%, 60%, 1);
 	--primary-dark: hsla(var(--hue), 0%, 90%, 1);
-	--primary-transparent: hsla(var(--hue), 0%, 90%, .25);
+	--primary-transparent: hsla(var(--hue), 0%, 90%, 0.25);
 
 	--outline-color: var(--primary-transparent);
 
 	--white: hsla(var(--hue), 0%, 10%, 1);
 	--white-dark: hsla(var(--hue), 0%, 20%, 1);
-	
+
 	color: var(--primary-dark);
 }
 
@@ -62,8 +61,8 @@ p {
 	font-weight: 400;
 	color: var(--primary-dark);
 	margin-bottom: 16px;
-  text-transform: lowercase;
-  letter-spacing: var(--global-letter-spacing);
+	text-transform: lowercase;
+	letter-spacing: var(--global-letter-spacing);
 }
 
 p {
@@ -93,6 +92,7 @@ button {
 	display: none;
 }
 
-dl, ul {
+dl,
+ul {
 	margin: 0;
 }

@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-	import SearchBar from "$lib/searchbar/SearchBar.svelte";
+	import SearchBar from '$lib/searchbar/SearchBar.svelte';
 
 	export const prerender = true;
 </script>
@@ -10,15 +10,10 @@
 </svelte:head>
 
 <section>
-	<h1>
-		twotop
-	</h1>
+	<h1>twotop</h1>
 
-	<h2>
-		search for something
-	</h2>
+	<h2>search for something</h2>
 	<SearchBar />
-
 </section>
 
 <style>

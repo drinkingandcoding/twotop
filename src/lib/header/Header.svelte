@@ -8,7 +8,7 @@
 	<nav>
 		<ul>
 			<li class:active={$page.url.pathname === '/'}><a sveltekit:prefetch href="/">Home</a></li>
-			<li class:active={$page.url.pathname.includes('/recipes') }>
+			<li class:active={$page.url.pathname.includes('/recipes')}>
 				<a sveltekit:prefetch href="/recipes">Recipes</a>
 			</li>
 			<li class:active={$page.url.pathname.includes('/builder')}>
@@ -17,13 +17,12 @@
 		</ul>
 	</nav>
 	<div class="brand">
-		<Logo/>
+		<Logo />
 	</div>
-	<AuthButton class="headerButton"/>
+	<AuthButton class="headerButton" />
 </header>
 
 <style>
-
 	header {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
@@ -32,7 +31,7 @@
 		padding: 12px 12px 0 12px;
 	}
 
-	.brand { 
+	.brand {
 		justify-self: center;
 	}
 
@@ -56,16 +55,19 @@
 		position: relative;
 		height: 100%;
 	}
-	
-	li.active:after, li:hover::after {
-		content: "";
+
+	li.active:after,
+	li:hover::after {
+		content: '';
 		width: 95%;
 		height: 2px;
 		background-color: var(--accent);
-		display: block
+		display: block;
 	}
 
-	.brand, nav a, :global(.headerButton) {
+	.brand,
+	nav a,
+	:global(.headerButton) {
 		display: flex;
 		height: 100%;
 		align-items: center;
@@ -84,8 +86,8 @@
 		justify-self: right;
 	}
 
-	:global(.headerButton):hover, :global(.headerButton.open) {
+	:global(.headerButton):hover,
+	:global(.headerButton.open) {
 		border: 1px solid var(--accent);
 	}
-
 </style>

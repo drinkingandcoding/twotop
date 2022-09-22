@@ -36,8 +36,8 @@
 	</p>
 
 	<p>
-		The <a href="/recipes">TODOs</a> page illustrates SvelteKit's data loading and form handling. Try using
-		it with JavaScript disabled!
+		The <a href="/recipes">TODOs</a> page illustrates SvelteKit's data loading and form handling. Try
+		using it with JavaScript disabled!
 	</p>
 </div>
 

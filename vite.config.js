@@ -5,9 +5,9 @@ const config = {
 	plugins: [sveltekit()],
 	vite: {
 		optimizeDeps: {
-			include: ["fuzzy"],
-		},
-	},
+			include: ['fuzzy']
+		}
+	}
 };
 
 export default config;

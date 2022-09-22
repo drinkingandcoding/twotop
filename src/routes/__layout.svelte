@@ -11,10 +11,13 @@
 </main>
 
 <footer>
-	<span>found an issue? <a href="https://github.com/drinkingandcoding/twotop">send us a message</a></span>
+	<span
+		>found an issue? <a href="https://github.com/drinkingandcoding/twotop">send us a message</a
+		></span
+	>
 </footer>
 
-<MobileNav/>
+<MobileNav />
 
 <style>
 	main {
@@ -29,7 +32,7 @@
 
 	footer {
 		color: var(--primary-medium);
-		font-size: .75rem;
+		font-size: 0.75rem;
 		letter-spacing: var(--global-letter-spacing);
 		display: flex;
 		flex-direction: column;
@@ -45,7 +48,11 @@
 	}
 
 	@media (max-width: 480px) {
-		:global(.mobileNav) { display: block !important }
-		:global(.desktopNav) { display: none !important}
+		:global(.mobileNav) {
+			display: block !important;
+		}
+		:global(.desktopNav) {
+			display: none !important;
+		}
 	}
 </style>

@@ -1,9 +1,9 @@
 <div class="cardBody">
-  <slot/>
+	<slot />
 </div>
 
 <style>
-  .cardBody {
-    padding: 16px;
-  }
+	.cardBody {
+		padding: 16px;
+	}
 </style>

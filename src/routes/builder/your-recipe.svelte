@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-  import Recipe from '$lib/recipes/Recipe.svelte';
+	import Recipe from '$lib/recipes/Recipe.svelte';
 	import { currentBuilderStatus } from '$lib/stores.js';
 </script>
 
@@ -11,12 +11,11 @@
 <section>
 	<!-- TODO Fix this -->
 	{#if $currentBuilderStatus.name}
-		<Recipe data={$currentBuilderStatus}/> 
+		<Recipe data={$currentBuilderStatus} />
 	{:else}
 		<span> no data </span>
 	{/if}
 </section>
 
 <style>
-
 </style>

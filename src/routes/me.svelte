@@ -1,5 +1,4 @@
 <script context="module" lang="ts">
-
 </script>
 
 <svelte:head>
@@ -8,10 +7,8 @@
 </svelte:head>
 
 <section>
-  <h1 class="section title">My profile</h1>
+	<h1 class="section title">My profile</h1>
 </section>
 
 <style>
-
-
 </style>
