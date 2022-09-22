@@ -1,7 +1,7 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
   import Button from "$lib/button/Button.svelte";
-  import type { AuthorInterface, InstructionsInterface } from "$lib/data/recipes";
+  import type { AuthorInterface, InstructionsInterface, NutritionInterface } from "$lib/data/recipes";
   import DescriptionDetails from "$lib/List/DescriptionDetails.svelte";
   import DescriptionTerm from "$lib/List/DescriptionTerm.svelte";
   import ListItem from "$lib/List/ListItem.svelte";
@@ -15,6 +15,9 @@
   let ingredientList:string[] = $currentBuilderStatus.ingredients;
   let instructionList:InstructionsInterface[] = $currentBuilderStatus.instructions;
   let recipeYield: string = $currentBuilderStatus.yield;
+  let category: string = $currentBuilderStatus.category;
+  let cuisine: string = $currentBuilderStatus.cuisine;
+  let calories: NutritionInterface = $currentBuilderStatus.nutrition;
 
   // Keywords
   let keyword:string;
@@ -72,14 +75,15 @@
       "totalTime": input.totalTime,
       "keywords": keywordList as any, // done
       "yield": recipeYield, // done
-      "category": input.category,
-      "cuisine": input.cuisine,
+      "category": input.category, // done
+      "cuisine": input.cuisine, // done
       "nutrition": {
         "calories": input.nutritionCalories
       },
       "ingredients": ingredientList as any, // done
       "instructions": instructionList as any // done
     });
+    console.log(currentBuilderStatus);
     goto("/builder/your-recipe");
   }
 
@@ -151,6 +155,28 @@
     {/if}
   </div>
 
+  <!-- Category -->
+  <div class="formGroup">
+    <label class="formLabel" for="category">Category</label>
+    <input class="formInput"
+      id="category"
+      name="category"
+      bind:value={category}
+      placeholder="Lunch"
+    />
+  </div>
+
+  <!-- Cuisine -->
+  <div class="formGroup">
+    <label class="formLabel" for="cuisine">Cuisine</label>
+    <input class="formInput"
+      id="cuisine"
+      name="cuisine"
+      bind:value={cuisine}
+      placeholder="French"
+    />
+  </div>
+
   <!-- Yield -->
   <div class="formGroup">
     <label class="formLabel" for="yield">Yield</label>
@@ -159,6 +185,17 @@
       name="yield"
       bind:value={recipeYield}
       placeholder="4"
+    />
+  </div>
+
+  <!-- Calories -->
+  <div class="formGroup">
+    <label class="formLabel" for="yield">Calories</label>
+    <input class="formInput"
+      id="calories"
+      name="calories"
+      bind:value={calories.calories}
+      placeholder="500"
     />
   </div>
 

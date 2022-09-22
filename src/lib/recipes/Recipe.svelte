@@ -16,23 +16,47 @@
     <!-- Title -->
     <h1 class="section recipe_name">{data.name}</h1>
     <div class="banner_bottom">
+
       <!-- Ingredients -->
       <div class="section recipe_keywords">
         {#each data.keywords as keyword}
           <Chip keyword={keyword}/>
         {/each}
       </div>
+
+      <!-- Category -->
+      { #if data.category }
+        <div class="section recipe_category">
+          <span>Category: { data.category }</span>
+        </div>
+      {/if}
+
+      <!-- Cuisine -->
+      { #if data.recipeCuisine }
+        <div>
+          <span>Cuisine { data.recipeCuisine }</span>
+        </div>
+      {/if}
+
       <!-- Author information -->
       {#if data.author }
         <div class="section recipe_author">
           <span>Recipe by: <a href={data.author.reference}>{data.author.name}</a></span> 
         </div>
       {/if}
+
       <!-- Yield information -->
       {#if data.yield }
        <div class="section recipe_author">
          <span>Yields <b>{data.yield}</b> portions</span> 
        </div>
+      {/if}
+
+      <!-- Calories -->
+      {#if data.nutrition?.calories }
+        <div class="section recipe_nutrition">
+          <span><b>{data.nutrition.calories}</b> Calories</span> 
+        </div>
       {/if}
 
     </div>
@@ -114,13 +138,13 @@
     color: var(--accent);
   }
 
-  .recipe_name, .recipe_author, .recipe_author a { color:  #fff; }
-  .recipe_author { padding-left:  6px; }
+  .recipe_name, .recipe_author, .recipe_category, .recipe_author a { color:  #fff; }
+  .recipe_author, .recipe_category { padding-left:  6px; }
   .recipe_name { font-size: 3rem;}
 
   /* Keywords / Chips */
   .recipe_keywords {
-    float:  right;
+/*    float:  right;*/
   }
 
 /* -------------------------------------------------------------------------
