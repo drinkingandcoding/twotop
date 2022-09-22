@@ -22,6 +22,20 @@
     {/each}
   </div>
 
+  <!-- Category -->
+  { #if data.category }
+    <div>
+      <span>Category: { data.category }</span>
+    </div>
+  {/if}
+
+  <!-- Cuisine -->
+  { #if data.recipeCuisine }
+    <div>
+      <span>Cuisine { data.recipeCuisine }</span>
+    </div>
+  {/if}
+
   <!-- Author information -->
   {#if data.author }
     <div class="section recipe_author">
@@ -33,6 +47,13 @@
   {#if data.yield }
     <div class="section recipe_author">
       <span>Yields <b>{data.yield}</b> portions</span> 
+    </div>
+  {/if}
+
+  <!-- Calories -->
+  {#if data.nutrition?.calories }
+    <div class="section">
+      <span><b>{data.nutrition.calories}</b> Calories</span> 
     </div>
   {/if}
 
