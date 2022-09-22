@@ -85,10 +85,10 @@
               <div>
                 <div class="circle">{i + 1}</div>
               </div>
-              <div>
+              <dl>
                 <div class="title"><DescriptionTerm item={instruction.name} /></div>
                 <div class="caption"><DescriptionDetails item={instruction.text} /></div>
-              </div>
+              </dl>
             </div>
           {/each}
         </CardBody>
@@ -113,7 +113,7 @@
 
   .layout {
     display: flex;
-    background: #fff;
+    background:  var(--white);
   }
   .layout > div {
     width: 50%;
@@ -122,6 +122,10 @@
   .layout > div:first-child {
     margin-right: 20px;
     width: 40%;
+  }
+
+  dl {
+    padding-left: 46px;
   }
 
   @media (max-width: 768px) {
@@ -159,7 +163,7 @@
   .recipe_author,
   .recipe_category,
   .recipe_author a {
-    color: #fff;
+    color: var(--white);
   }
   .recipe_author,
   .recipe_category {
@@ -198,15 +202,16 @@
   }
   /* Circle */
   .circle {
-    background: gray;
+    background: var(--primary-medium);
     position: relative;
     width: 1.5em;
     height: 1.5em;
     line-height: 1.5em;
     border-radius: 100%;
-    color: #fff;
+    color: var(--white);
     text-align: center;
-    box-shadow: 0 0 0 3px #fff;
+    box-shadow: 0 0 0 3px var(--white);
+    z-index:  2;
   }
 
   /* Vertical Line */
@@ -222,7 +227,7 @@
     width: 1px;
     transform: scale(1, 2);
     transform-origin: 50% -100%;
-    background-color: #ccc;
+    background-color: var(--primary-medium);
     z-index: 1;
   }
   .step:last-child .circle:after {
