@@ -1,16 +1,16 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
-  import DropdownItem from "$lib/dropdown/DropdownItem.svelte";
-  import { createPopper } from "@popperjs/core";
+  import { goto } from '$app/navigation';
+  import DropdownItem from '$lib/dropdown/DropdownItem.svelte';
+  import { createPopper } from '@popperjs/core';
 
-  export let logout:() => void;
-  export let user:any;
+  export let logout: () => void;
+  export let user: any;
 
   $: dropdownPopoverShow = false;
   console.log(user);
 
-  let btnDropdownRef:HTMLButtonElement;
-  let popoverDropdownRef:HTMLElement;
+  let btnDropdownRef: HTMLButtonElement;
+  let popoverDropdownRef: HTMLElement;
 
   const toggleDropdown = () => {
     if (dropdownPopoverShow) {
@@ -18,23 +18,27 @@
     } else {
       dropdownPopoverShow = true;
       createPopper(btnDropdownRef, popoverDropdownRef, {
-        placement: "bottom-end"
+        placement: 'bottom-end'
       });
     }
   };
 </script>
 
-<button type="button" bind:this={btnDropdownRef} on:click={toggleDropdown} class={`${$$props.class} ${dropdownPopoverShow ? "open" : "closed"}`}>
+<button
+  type="button"
+  bind:this={btnDropdownRef}
+  on:click={toggleDropdown}
+  class={`${$$props.class} ${dropdownPopoverShow ? 'open' : 'closed'}`}
+>
   hey, {user.username}
 </button>
-<div bind:this={popoverDropdownRef} class={`dropdownMenu ${dropdownPopoverShow ? "open" : "closed"}`}>
-  <DropdownItem on:click={() => goto("/me")}>
-    My profile
-  </DropdownItem>
-  <div class="separator"/>
-  <DropdownItem on:click={logout}>
-    Log out
-  </DropdownItem>
+<div
+  bind:this={popoverDropdownRef}
+  class={`dropdownMenu ${dropdownPopoverShow ? 'open' : 'closed'}`}
+>
+  <DropdownItem on:click={() => goto('/me')}>My profile</DropdownItem>
+  <div class="separator" />
+  <DropdownItem on:click={logout}>Log out</DropdownItem>
 </div>
 
 <style>
@@ -56,5 +60,4 @@
   .dropdownMenu.closed {
     display: none;
   }
-
 </style>
