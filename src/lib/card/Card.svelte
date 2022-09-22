@@ -1,5 +1,5 @@
 <div class={`card ${$$props.class}`}>
-  <slot/>
+  <slot />
 </div>
 
 <style>
@@ -8,5 +8,4 @@
     /*border: 1px solid var(--primary-light);*/
     border-radius: var(--global-border-radius);
   }
-
 </style>

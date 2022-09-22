@@ -8,7 +8,7 @@
   import Card from '$lib/card/Card.svelte';
   import CardBody from '$lib/card/CardBody.svelte';
   import CardHeader from '$lib/card/CardHeader.svelte';
-  export let data:RecipeInterface;
+  export let data: RecipeInterface;
 </script>
 
 <div class="recipe">
@@ -16,49 +16,47 @@
     <!-- Title -->
     <h1 class="section recipe_name">{data.name}</h1>
     <div class="banner_bottom">
-
       <!-- Ingredients -->
       <div class="section recipe_keywords">
         {#each data.keywords as keyword}
-          <Chip keyword={keyword}/>
+          <Chip {keyword} />
         {/each}
       </div>
 
       <!-- Category -->
-      { #if data.category }
+      {#if data.category}
         <div class="section recipe_category">
-          <span>Category: { data.category }</span>
+          <span>Category: {data.category}</span>
         </div>
       {/if}
 
       <!-- Cuisine -->
-      { #if data.recipeCuisine }
+      {#if data.recipeCuisine}
         <div>
-          <span>Cuisine { data.recipeCuisine }</span>
+          <span>Cuisine {data.recipeCuisine}</span>
         </div>
       {/if}
 
       <!-- Author information -->
-      {#if data.author }
+      {#if data.author}
         <div class="section recipe_author">
-          <span>Recipe by: <a href={data.author.reference}>{data.author.name}</a></span> 
+          <span>Recipe by: <a href={data.author.reference}>{data.author.name}</a></span>
         </div>
       {/if}
 
       <!-- Yield information -->
-      {#if data.yield }
-       <div class="section recipe_author">
-         <span>Yields <b>{data.yield}</b> portions</span> 
-       </div>
-      {/if}
-
-      <!-- Calories -->
-      {#if data.nutrition?.calories }
-        <div class="section recipe_nutrition">
-          <span><b>{data.nutrition.calories}</b> Calories</span> 
+      {#if data.yield}
+        <div class="section recipe_author">
+          <span>Yields <b>{data.yield}</b> portions</span>
         </div>
       {/if}
 
+      <!-- Calories -->
+      {#if data.nutrition?.calories}
+        <div class="section recipe_nutrition">
+          <span><b>{data.nutrition.calories}</b> Calories</span>
+        </div>
+      {/if}
     </div>
   </div>
 
@@ -70,7 +68,7 @@
         <CardBody>
           <UnorderedList>
             {#each data.ingredients as ingredient}
-              <ListItem item={ingredient}/>
+              <ListItem item={ingredient} />
             {/each}
           </UnorderedList>
         </CardBody>
@@ -85,11 +83,11 @@
           {#each data.instructions as instruction, i}
             <div class="step">
               <div>
-                <div class="circle">{i+1}</div>
+                <div class="circle">{i + 1}</div>
               </div>
               <div>
-                <div class="title"><DescriptionTerm item={instruction.name}/></div>
-                <div class="caption"><DescriptionDetails item={instruction.text}/></div>
+                <div class="title"><DescriptionTerm item={instruction.name} /></div>
+                <div class="caption"><DescriptionDetails item={instruction.text} /></div>
               </div>
             </div>
           {/each}
@@ -100,7 +98,9 @@
 </div>
 
 <style>
-  :global(.section) {margin-bottom: 24px;}
+  :global(.section) {
+    margin-bottom: 24px;
+  }
 
   .banner {
     background-color: #ee5522;
@@ -108,26 +108,43 @@
     background-attachment: fixed;
     background-size: cover;
     /* background by SVGBackgrounds.com */
-    padding:  8px 4px 2px 4px;
+    padding: 8px 4px 2px 4px;
   }
 
-  .layout {display: flex; background:  #fff;}
-  .layout > div {width: 50%;padding: 10px;}
-  .layout > div:first-child {margin-right: 20px;width: 40%;}
+  .layout {
+    display: flex;
+    background: #fff;
+  }
+  .layout > div {
+    width: 50%;
+    padding: 10px;
+  }
+  .layout > div:first-child {
+    margin-right: 20px;
+    width: 40%;
+  }
 
   @media (max-width: 768px) {
-    .layout {flex-direction: column;}
-    .layout > div {width: 100%;}
-    .layout > div:first-child {width: 100%}
+    .layout {
+      flex-direction: column;
+    }
+    .layout > div {
+      width: 100%;
+    }
+    .layout > div:first-child {
+      width: 100%;
+    }
 
-    .recipe_name { font-size: .8rem; }
+    .recipe_name {
+      font-size: 0.8rem;
+    }
 
     .banner_bottom {
       display: flex;
       flex-direction: column;
     }
     .card .section .recipe_ingredients {
-      margin-bottom:  0;
+      margin-bottom: 0;
     }
   }
 
@@ -138,77 +155,86 @@
     color: var(--accent);
   }
 
-  .recipe_name, .recipe_author, .recipe_category, .recipe_author a { color:  #fff; }
-  .recipe_author, .recipe_category { padding-left:  6px; }
-  .recipe_name { font-size: 3rem;}
+  .recipe_name,
+  .recipe_author,
+  .recipe_category,
+  .recipe_author a {
+    color: #fff;
+  }
+  .recipe_author,
+  .recipe_category {
+    padding-left: 6px;
+  }
+  .recipe_name {
+    font-size: 3rem;
+  }
 
   /* Keywords / Chips */
   .recipe_keywords {
-/*    float:  right;*/
+    /*    float:  right;*/
   }
 
-/* -------------------------------------------------------------------------
+  /* -------------------------------------------------------------------------
   VERTICAL STEPPERS
 -------------------------------------------------------------------------- */
-/* https://codeconvey.com/pure-css-vertical-stepper/ */
+  /* https://codeconvey.com/pure-css-vertical-stepper/ */
 
-/* Steps */
-.step {
-  position: relative;
-  min-height: 1em;
-  color: var(--accent);
-}
-.step + .step {
-  margin-top: 1.5em;
-}
-.step > div:first-child {
-  position: static;
-  height: 0;
-}
-.step > div:not(:first-child) {
-  margin-left: 1.5em;
-  padding-left: 1em;
-}
-/* Circle */
-.circle {
-  background: gray;
-  position: relative;
-  width: 1.5em;
-  height: 1.5em;
-  line-height: 1.5em;
-  border-radius: 100%;
-  color: #fff;
-  text-align: center;
-  box-shadow: 0 0 0 3px #fff;
-}
+  /* Steps */
+  .step {
+    position: relative;
+    min-height: 1em;
+    color: var(--accent);
+  }
+  .step + .step {
+    margin-top: 1.5em;
+  }
+  .step > div:first-child {
+    position: static;
+    height: 0;
+  }
+  .step > div:not(:first-child) {
+    margin-left: 1.5em;
+    padding-left: 1em;
+  }
+  /* Circle */
+  .circle {
+    background: gray;
+    position: relative;
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.5em;
+    border-radius: 100%;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 0 0 3px #fff;
+  }
 
-/* Vertical Line */
-.circle:after {
-  content: ' ';
-  position: absolute;
-  display: block;
-  top: 1px;
-  right: 50%;
-  bottom: 1px;
-  left: 50%;
-  height: 100%;
-  width: 1px;
-  transform: scale(1, 2);
-  transform-origin: 50% -100%;
-  background-color: #ccc;
-  z-index:  1;
-}
-.step:last-child .circle:after {
-  display: none
-}
+  /* Vertical Line */
+  .circle:after {
+    content: ' ';
+    position: absolute;
+    display: block;
+    top: 1px;
+    right: 50%;
+    bottom: 1px;
+    left: 50%;
+    height: 100%;
+    width: 1px;
+    transform: scale(1, 2);
+    transform-origin: 50% -100%;
+    background-color: #ccc;
+    z-index: 1;
+  }
+  .step:last-child .circle:after {
+    display: none;
+  }
 
-/* Stepper Titles */
-.title {
-  line-height: 1.5em;
-  font-weight: bold;
-}
-.caption {
-  font-size: 0.8em;
-}
-
+  /* Stepper Titles */
+  .title {
+    line-height: 1.5em;
+    font-weight: bold;
+  }
+  .caption {
+    font-size: 0.8em;
+  }
 </style>

@@ -1,5 +1,5 @@
 <div class="cardHeader">
-  <slot/>
+  <slot />
 </div>
 
 <style>
@@ -8,5 +8,4 @@
     padding: 16px;
     color: var(--accent);
   }
-
 </style>

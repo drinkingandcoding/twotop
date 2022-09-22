@@ -1,5 +1,5 @@
 <div class="cardBody">
-  <slot/>
+  <slot />
 </div>
 
 <style>

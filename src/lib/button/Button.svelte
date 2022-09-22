@@ -1,9 +1,9 @@
 <script lang="ts">
-  export let formType:string | undefined = undefined;
-  export let variant:string = "primary";
+  export let formType: string | undefined = undefined;
+  export let variant: string = 'primary';
 </script>
 
-<button class={`${variant} ${$$props.class}`} type={formType} on:click><slot/></button>
+<button class={`${variant} ${$$props.class}`} type={formType} on:click><slot /></button>
 
 <style>
   button {
@@ -15,13 +15,14 @@
     padding: var(--global-padding-y) var(--global-padding-x);
     border-radius: var(--global-padding-y);
     font-weight: 700;
-		font-size: 0.8rem;
-		text-transform: lowercase;
-		letter-spacing: var(--global-letter-spacing);
+    font-size: 0.8rem;
+    text-transform: lowercase;
+    letter-spacing: var(--global-letter-spacing);
     color: var(--primary-dark);
   }
 
-  button:hover, button:focus{
+  button:hover,
+  button:focus {
     background-color: var(--white-dark);
   }
 
@@ -33,7 +34,7 @@
     outline: none;
     font-weight: bold;
     text-transform: lowercase;
-    font-size: .8rem;
+    font-size: 0.8rem;
     color: var(--primary-medium);
   }
 
@@ -41,9 +42,9 @@
     color: var(--accent);
   }
 
-  button.accent:hover, button.accent:focus {
+  button.accent:hover,
+  button.accent:focus {
     background-color: var(--accent);
     color: var(--white);
   }
-
 </style>

@@ -1,16 +1,16 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
-  import Button from "$lib/button/Button.svelte";
+  import { goto } from '$app/navigation';
+  import Button from '$lib/button/Button.svelte';
   import type {
     AuthorInterface,
     InstructionsInterface,
     NutritionInterface
-  } from "$lib/data/recipes";
-  import DescriptionDetails from "$lib/List/DescriptionDetails.svelte";
-  import DescriptionTerm from "$lib/List/DescriptionTerm.svelte";
-  import ListItem from "$lib/List/ListItem.svelte";
-  import UnorderedList from "$lib/List/UnorderedList.svelte";
-  import { currentBuilderStatus } from "$lib/stores.js";
+  } from '$lib/data/recipes';
+  import DescriptionDetails from '$lib/List/DescriptionDetails.svelte';
+  import DescriptionTerm from '$lib/List/DescriptionTerm.svelte';
+  import ListItem from '$lib/List/ListItem.svelte';
+  import UnorderedList from '$lib/List/UnorderedList.svelte';
+  import { currentBuilderStatus } from '$lib/stores.js';
 
   let name: string = $currentBuilderStatus.name;
   let author: AuthorInterface = $currentBuilderStatus.author;
@@ -27,8 +27,8 @@
   let keyword: string;
   const handleAddKeyword = () => {
     keywordList = keyword ? [...keywordList, keyword] : [...keywordList];
-    keyword = "";
-    document.getElementById("keywords")?.focus();
+    keyword = '';
+    document.getElementById('keywords')?.focus();
   };
   const handleRemoveKeyword = (keyword: number) => {
     const filteredArray = keywordList.filter((item: string, index: number) => index !== keyword);
@@ -39,8 +39,8 @@
   let ingredient: string;
   const handleAddIngredient = () => {
     ingredientList = ingredient ? [...ingredientList, ingredient] : [...ingredientList];
-    ingredient = "";
-    document.getElementById("ingredients")?.focus();
+    ingredient = '';
+    document.getElementById('ingredients')?.focus();
   };
   const handleRemoveIngredient = (ingredient: number) => {
     const filteredArray = ingredientList.filter(
@@ -57,9 +57,9 @@
       instructionName && instructionStep
         ? [...instructionList, { name: instructionName, text: instructionStep }]
         : [...instructionList];
-    instructionName = "";
-    instructionStep = "";
-    document.getElementById("instructionName")?.focus();
+    instructionName = '';
+    instructionStep = '';
+    document.getElementById('instructionName')?.focus();
   };
   const handleRemoveInstruction = (instruction: number) => {
     const filteredArray = instructionList.filter(
@@ -101,7 +101,7 @@
       instructions: instructionList as any // done
     });
     console.log(currentBuilderStatus);
-    goto("/builder/your-recipe");
+    goto('/builder/your-recipe');
   };
 </script>
 
@@ -269,7 +269,7 @@
     {#if instructionList.length}
       <dl class="instructionList">
         {#each instructionList as instruction, i}
-          <DescriptionTerm item={i + 1 + " " + instruction.name}
+          <DescriptionTerm item={i + 1 + ' ' + instruction.name}
             ><Button formType="button" variant="link" on:click={() => handleRemoveInstruction(i)}
               >[remove]</Button
             ></DescriptionTerm

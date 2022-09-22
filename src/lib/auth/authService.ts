@@ -1,5 +1,5 @@
-import createAuth0Client, { Auth0Client, type Auth0ClientOptions } from "@auth0/auth0-spa-js";
-import { user, isAuthenticated, popupOpen } from "$lib/stores";
+import createAuth0Client, { Auth0Client, type Auth0ClientOptions } from '@auth0/auth0-spa-js';
+import { user, isAuthenticated, popupOpen } from '$lib/stores';
 
 async function createClient() {
   let auth0Client = await createAuth0Client({
@@ -10,12 +10,12 @@ async function createClient() {
   return auth0Client;
 }
 
-async function loginWithPopup(client:Auth0Client, options?:Auth0ClientOptions) {
+async function loginWithPopup(client: Auth0Client, options?: Auth0ClientOptions) {
   popupOpen.set(true);
   try {
     await client.loginWithPopup(options);
     console.log(client);
-    user.set(await client.getUser() || {});
+    user.set((await client.getUser()) || {});
     isAuthenticated.set(true);
   } catch (e) {
     // eslint-disable-next-line
@@ -25,7 +25,7 @@ async function loginWithPopup(client:Auth0Client, options?:Auth0ClientOptions) {
   }
 }
 
-function logout(client:Auth0Client) {
+function logout(client: Auth0Client) {
   return client.logout();
 }
 

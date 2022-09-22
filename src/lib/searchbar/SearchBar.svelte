@@ -1,5 +1,5 @@
 <script>
-import Typeahead from "svelte-typeahead";
+  import Typeahead from 'svelte-typeahead';
 
   const data = [
     {
@@ -25,26 +25,26 @@ import Typeahead from "svelte-typeahead";
     }
   ];
 
-  const extract = (/** @type {{ recipe: string; }} */ item) => item.recipe
+  const extract = (/** @type {{ recipe: string; }} */ item) => item.recipe;
 
   /**
-	 * @type {any[]}
-	 */
+   * @type {any[]}
+   */
   let recipes = [];
+</script>
 
-  </script>
-  
-  <Typeahead 
-  placeholder={`search for something`} 
+<Typeahead
+  placeholder={`search for something`}
   inputAfterSelect={'clear'}
-  label="Search Recipes" 
-  {data} 
+  label="Search Recipes"
+  {data}
   extract={(item) => item.recipe}
-  hideLabel 
-  limit={10} 
-  />
+  hideLabel
+  limit={10}
+/>
 
-  <style>
-  :global([role="listbox"])
-  { margin: 0; }
-  </style>
+<style>
+  :global([role='listbox']) {
+    margin: 0;
+  }
+</style>

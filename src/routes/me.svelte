@@ -1,10 +1,9 @@
 <script context="module" lang="ts">
-
 </script>
 
 <svelte:head>
-	<title>me | twotop</title>
-	<meta name="Me | twotop" content="build recipes" />
+  <title>me | twotop</title>
+  <meta name="Me | twotop" content="build recipes" />
 </svelte:head>
 
 <section>
@@ -12,6 +11,4 @@
 </section>
 
 <style>
-
-
 </style>

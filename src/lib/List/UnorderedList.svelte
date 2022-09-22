@@ -1,13 +1,12 @@
 <script lang="ts">
-
 </script>
 
 <ul class="unorderedList">
-  <slot/>
+  <slot />
 </ul>
 
 <style>
-  .unorderedList{
+  .unorderedList {
     list-style-type: none;
     padding-left: 15px;
   }
