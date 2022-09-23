@@ -9,7 +9,7 @@
 
 <style>
   .alert {
-    --alert-hue: 357;
+    --alert-hue: var(--red-hue);
 
     border: 2px solid hsla(var(--alert-hue), 95%, 80%);
     border-radius: var(--global-border-radius);
@@ -29,14 +29,14 @@
   }
 
   .alert.warning {
-    --alert-hue: 44;
+    --alert-hue: var(--yellow-hue);
   }
 
   .alert.info {
-    --alert-hue: 226;
+    --alert-hue: var(--blue-hue);
   }
 
   .alert.success {
-    --alert-hue: 124;
+    --alert-hue: var(--green-hue);
   }
 </style>
