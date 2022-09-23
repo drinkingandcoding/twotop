@@ -352,6 +352,10 @@
   .formInputDescripter {
     display: flex;
     align-self: center;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: var(--global-letter-spacing);
+    margin-left: var(--global-padding-y);
   }
 
   .formActions {
