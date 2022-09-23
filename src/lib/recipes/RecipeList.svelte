@@ -2,6 +2,8 @@
   import { onMount } from 'svelte';
   import { API_BASE_URL } from '$lib/consts';
   import { recipeList } from '../stores';
+  import Loading from '$lib/loading/Loading.svelte';
+  import Error from '$lib/error/Error.svelte';
 
   const getRecipeURL = API_BASE_URL + '/recipes';
   let isLoading: Boolean = true;
@@ -26,22 +28,22 @@
 <div class="recipeList">
   <h1>List of all recipes</h1>
 
+  {#if isError}
+    <Error />
+  {/if}
+
   {#if isLoading}
-    <span> Loading </span>
+    <Loading />
   {/if}
 
   {#if !isLoading && $recipeList.length}
     {#each $recipeList as recipe}
-      <a href={`recipes/${recipe.name}`}> {recipe.name} </a>
+      <a href={`recipes/${recipe.ID}`}> {recipe.name} </a>
     {/each}
   {/if}
 
   {#if !isLoading && !isError && !$recipeList.length}
     <span> no data </span>
-  {/if}
-
-  {#if isError}
-    <span> oopsie doopsies there was an error :( </span>
   {/if}
 </div>
 
