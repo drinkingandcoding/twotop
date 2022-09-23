@@ -136,8 +136,6 @@
   onMount(async () => {
     if (localStorage.getItem('recipe')) {
       console.log(localStorage.getItem('recipe'));
-      // $currentBuilderStatus = JSON.parse(localStorage.getItem('recipe'))
-      // console.log($currentBuilderStatus)
     } else {
       onReset();
     }
