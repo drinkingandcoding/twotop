@@ -17,7 +17,11 @@
   --white: hsla(var(--hue), 0%, 98%, 1);
   --white-dark: hsla(var(--hue), 0%, 95%, 1);
 
-  --orange: hsla(30, 96%, 52%, 1.0);
+  --orange: hsla(30, 96%, 52%, 1);
+  --green-hue: 124;
+  --yellow-hue: 44;
+  --blue-hue: 226;
+  --red-hue: 357;
 
   --outline-color: var(--primary-transparent);
 

@@ -121,11 +121,11 @@
       description: description, // done
       totalTime: totalTime, // done
       keywords: keywordList as any, // done
-      yield: recipeYield, // done
+      yield: recipeYield.toString(), // done
       category: category, // done
       cuisine: cuisine, // done
       nutrition: {
-        calories: calories // done
+        calories: calories.toString() // done
       },
       ingredients: ingredientList as any, // done
       instructions: instructionList as any // done
