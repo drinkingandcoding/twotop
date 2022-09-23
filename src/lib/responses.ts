@@ -6,3 +6,10 @@ export interface RecipeListInterface extends RecipeInterface {
   UpdatedAt: Date;
   DeletedAt?: any;
 }
+
+export interface RecipeByIDInterface extends RecipeInterface {
+  ID: number;
+  CreatedAt: Date;
+  UpdatedAt: Date;
+  DeletedAt?: any;
+}
