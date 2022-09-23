@@ -1,101 +1,139 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
+  import { API_BASE_URL } from '$lib/consts';
+  import { recipe } from '../stores';
+  import { page } from '$app/stores';
+
   import Chip from '$lib/chip/Chip.svelte';
   import UnorderedList from '$lib/List/UnorderedList.svelte';
   import ListItem from '$lib/List/ListItem.svelte';
-  import type { RecipeInterface } from '$lib/data/recipes';
   import DescriptionTerm from '$lib/List/DescriptionTerm.svelte';
   import DescriptionDetails from '$lib/List/DescriptionDetails.svelte';
   import Card from '$lib/card/Card.svelte';
   import CardBody from '$lib/card/CardBody.svelte';
   import CardHeader from '$lib/card/CardHeader.svelte';
-  export let data: RecipeInterface;
+  import Loading from '$lib/loading/Loading.svelte';
+  import Error from '$lib/error/Error.svelte';
+
+  const urlID: string = $page.url.pathname.split('/recipes/')[1];
+
+  const getRecipeByID = API_BASE_URL + '/recipes/' + urlID;
+
+  let isLoading: Boolean = true;
+  let isError: Boolean = false;
+
+  onMount(async () => {
+    fetch(getRecipeByID)
+      .then((response) => response.json())
+      .then((data) => {
+        recipe.set(data);
+        isLoading = false;
+        console.log(recipe);
+      })
+      .catch((error) => {
+        console.log(error);
+        isError = true;
+        isLoading = false;
+        return [];
+      });
+  });
 </script>
 
-<div class="recipe">
-  <div class="banner">
-    <!-- Title -->
-    <h1 class="section recipe_name">{data.name}</h1>
-    <div class="banner_bottom">
-      <!-- Ingredients -->
-      <div class="section recipe_keywords">
-        {#each data.keywords as keyword}
-          <Chip {keyword} />
-        {/each}
+{#if isError}
+  <Error />
+{/if}
+
+{#if isLoading}
+  <Loading />
+{/if}
+
+{#if !isError && !isLoading}
+  <div class="recipe">
+    <div class="banner">
+      <!-- Title -->
+      <h1 class="section recipe_name">{$recipe.name}</h1>
+      <div class="banner_bottom">
+        <!-- Ingredients -->
+        <div class="section recipe_keywords">
+          {#each $recipe.keywords as keyword}
+            <Chip {keyword} />
+          {/each}
+        </div>
+
+        <!-- Category -->
+        {#if $recipe.category}
+          <div class="section recipe_category">
+            <span>Category: {$recipe.category}</span>
+          </div>
+        {/if}
+
+        <!-- Cuisine -->
+        {#if $recipe.recipeCuisine}
+          <div>
+            <span>Cuisine {$recipe.recipeCuisine}</span>
+          </div>
+        {/if}
+
+        <!-- Author information -->
+        {#if $recipe.author}
+          <div class="section recipe_author">
+            <span>Recipe by: <a href={$recipe.author.reference}>{$recipe.author.name}</a></span>
+          </div>
+        {/if}
+
+        <!-- Yield information -->
+        {#if $recipe.yield}
+          <div class="section recipe_author">
+            <span>Yields <b>{$recipe.yield}</b> portions</span>
+          </div>
+        {/if}
+
+        <!-- Calories -->
+        {#if $recipe.nutrition?.calories}
+          <div class="section recipe_nutrition">
+            <span><b>{$recipe.nutrition.calories}</b> Calories</span>
+          </div>
+        {/if}
+      </div>
+    </div>
+
+    <div class="layout">
+      <div>
+        <!-- Ingredients -->
+        <Card class="section recipe_ingredients">
+          <CardHeader><h2 class="section_title">Ingredients</h2></CardHeader>
+          <CardBody>
+            <UnorderedList>
+              {#each $recipe.ingredients as ingredient}
+                <ListItem item={ingredient} />
+              {/each}
+            </UnorderedList>
+          </CardBody>
+        </Card>
       </div>
 
-      <!-- Category -->
-      {#if data.category}
-        <div class="section recipe_category">
-          <span>Category: {data.category}</span>
-        </div>
-      {/if}
-
-      <!-- Cuisine -->
-      {#if data.recipeCuisine}
-        <div>
-          <span>Cuisine {data.recipeCuisine}</span>
-        </div>
-      {/if}
-
-      <!-- Author information -->
-      {#if data.author}
-        <div class="section recipe_author">
-          <span>Recipe by: <a href={data.author.reference}>{data.author.name}</a></span>
-        </div>
-      {/if}
-
-      <!-- Yield information -->
-      {#if data.yield}
-        <div class="section recipe_author">
-          <span>Yields <b>{data.yield}</b> portions</span>
-        </div>
-      {/if}
-
-      <!-- Calories -->
-      {#if data.nutrition?.calories}
-        <div class="section recipe_nutrition">
-          <span><b>{data.nutrition.calories}</b> Calories</span>
-        </div>
-      {/if}
-    </div>
-  </div>
-
-  <div class="layout">
-    <div>
-      <!-- Ingredients -->
-      <Card class="section recipe_ingredients">
-        <CardHeader><h2 class="section_title">Ingredients</h2></CardHeader>
-        <CardBody>
-          <UnorderedList>
-            {#each data.ingredients as ingredient}
-              <ListItem item={ingredient} />
-            {/each}
-          </UnorderedList>
-        </CardBody>
-      </Card>
-    </div>
-
-    <div>
-      <!-- Instructions -->
-      <Card class="section recipe_instructions">
-        <CardHeader><h2 class="section_title">Directions</h2></CardHeader>
-        <CardBody>
-          {#each data.instructions as instruction, i}
-            <div class="step">
-              <div>
-                <div class="circle">{i + 1}</div>
+      <div>
+        <!-- Instructions -->
+        <Card class="section recipe_instructions">
+          <CardHeader><h2 class="section_title">Directions</h2></CardHeader>
+          <CardBody>
+            {#each $recipe.instructions as instruction, i}
+              <div class="step">
+                <div>
+                  <div class="circle">{i + 1}</div>
+                </div>
+                <dl>
+                  <div class="title"><DescriptionTerm item={instruction.name} /></div>
+                  <div class="caption"><DescriptionDetails item={instruction.text} /></div>
+                </dl>
               </div>
-              <dl>
-                <div class="title"><DescriptionTerm item={instruction.name} /></div>
-                <div class="caption"><DescriptionDetails item={instruction.text} /></div>
-              </dl>
-            </div>
-          {/each}
-        </CardBody>
-      </Card>
+            {/each}
+          </CardBody>
+        </Card>
+      </div>
     </div>
   </div>
-</div>
+{/if}
 
 <style>
   :global(.section) {
@@ -113,7 +151,7 @@
 
   .layout {
     display: flex;
-    background:  var(--white);
+    background: var(--white);
   }
   .layout > div {
     width: 50%;
@@ -211,7 +249,7 @@
     color: var(--white);
     text-align: center;
     box-shadow: 0 0 0 3px var(--white);
-    z-index:  2;
+    z-index: 2;
   }
 
   /* Vertical Line */
