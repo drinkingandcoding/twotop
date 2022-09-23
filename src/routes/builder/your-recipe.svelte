@@ -1,14 +1,31 @@
-<script context="module" lang="ts">
+<script lang="ts">
   import Recipe from '$lib/recipes/Recipe.svelte';
   import Button from '$lib/button/Button.svelte';
   import { currentBuilderStatus } from '$lib/stores.js';
+  import { API_BASE_URL } from '$lib/consts';
   import { goto } from '$app/navigation';
-  import { isAuthenticated } from '$lib/stores';
+  import { isAuthenticated, user } from '$lib/stores';
   import Alert from '$lib/alert/Alert.svelte';
 
-  const submitRecipe = () => {
-    console.log('yay');
-  };
+  const postRecipe = API_BASE_URL + '/recipes';
+
+  async function submitRecipe() {
+    const postData = {
+      userID: $user.sub,
+      $currentBuilderStatus
+    };
+
+    const res = await fetch(postRecipe, {
+      method: 'POST',
+      body: JSON.stringify({
+        postData
+      })
+    });
+
+    const json = await res.json();
+    const result = json;
+    console.log(result);
+  }
 </script>
 
 <svelte:head>

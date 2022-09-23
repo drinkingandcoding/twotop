@@ -8,7 +8,7 @@
   import CardBody from '$lib/card/CardBody.svelte';
   import CardHeader from '$lib/card/CardHeader.svelte';
   import type { RecipeInterface } from '$lib/data/recipes';
-  import type { RecipeByIDInterface } from '$lib/responses';
+  import type { RecipeByIDInterface } from '$lib/responsesInterface';
 
   export let data: RecipeInterface | RecipeByIDInterface;
 </script>
