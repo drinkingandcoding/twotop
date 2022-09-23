@@ -206,8 +206,15 @@
 
   <!-- Yield -->
   <div class="formGroup">
-    <label class="formLabel" for="yield">Yield</label>
-    <input class="formInput" id="yield" name="yield" bind:value={recipeYield} placeholder="4" />
+    <label class="formLabel" for="yield">total yield</label>
+    <input
+      class="formInput"
+      id="yield"
+      name="yield"
+      bind:value={recipeYield}
+      placeholder="4"
+      type="number"
+    />
   </div>
 
   <!-- Total Time -->
@@ -219,20 +226,23 @@
       name="totalTime"
       bind:value={totalTime}
       placeholder="50"
+      type="number"
     />
-    <span style="margin-left:10px;">minutes</span>
+    <span class="formInputDescripter">minutes</span>
   </div>
 
   <!-- Calories -->
   <div class="formGroup">
-    <label class="formLabel" for="yield">Calories</label>
+    <label class="formLabel" for="yield">Calories for dish</label>
     <input
       class="formInput"
       id="calories"
       name="calories"
       bind:value={calories}
       placeholder="500"
+      type="number"
     />
+    <span class="formInputDescripter">calories</span>
   </div>
 
   <!-- Ingredients -->
@@ -243,7 +253,7 @@
       id="ingredients"
       name="ingredients"
       bind:value={ingredient}
-      placeholder="1 cup (2 sticks|255 grams) plus 2 tablespoons unsalted butter"
+      placeholder="1 cup unsalted butter"
     />
     <Button formType="button" class="formButton" on:click={handleAddIngredient}>Add</Button>
     {#if ingredientList.length}
@@ -337,6 +347,11 @@
 
   .builderForm :global(.unorderedList) {
     margin-bottom: 0;
+  }
+
+  .formInputDescripter {
+    display: flex;
+    align-self: center;
   }
 
   .formActions {
