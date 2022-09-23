@@ -5,6 +5,7 @@
 
   const getRecipeURL = API_BASE_URL + '/recipes';
   let isLoading: Boolean = true;
+  let isError: Boolean = false;
 
   onMount(async () => {
     fetch(getRecipeURL)
@@ -15,6 +16,8 @@
       })
       .catch((error) => {
         console.log(error);
+        isError = true;
+        isLoading = false;
         return [];
       });
   });
@@ -33,8 +36,12 @@
     {/each}
   {/if}
 
-  {#if !isLoading && !$recipeList.length}
+  {#if !isLoading && !isError && !$recipeList.length}
     <span> no data </span>
+  {/if}
+
+  {#if isError}
+    <span> oopsie doopsies there was an error :( </span>
   {/if}
 </div>
 
