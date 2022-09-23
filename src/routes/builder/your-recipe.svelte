@@ -6,6 +6,7 @@
   import { goto } from '$app/navigation';
   import { isAuthenticated, user } from '$lib/stores';
   import Alert from '$lib/alert/Alert.svelte';
+  let hasSubmittedRecipe = false;
 
   const postRecipe = API_BASE_URL + '/recipes';
 
@@ -24,7 +25,7 @@
 
     const json = await res.json();
     const result = json;
-    console.log(result);
+    hasSubmittedRecipe = true;
   }
 </script>
 
@@ -38,7 +39,7 @@
     <Alert variant="danger">You must be authenticated to submit recipes</Alert>
   {/if}
 
-  {#if $currentBuilderStatus.name}
+  {#if $currentBuilderStatus.name && !hasSubmittedRecipe}
     <Recipe data={$currentBuilderStatus} />
     <div class="actions">
       {#if $isAuthenticated}
@@ -48,6 +49,10 @@
     </div>
   {:else}
     <span> no data </span>
+  {/if}
+
+  {#if hasSubmittedRecipe}
+    <span> Thanks for submitting your recipe!</span>
   {/if}
 </section>
 
