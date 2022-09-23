@@ -10,8 +10,9 @@
   import DescriptionTerm from '$lib/List/DescriptionTerm.svelte';
   import ListItem from '$lib/List/ListItem.svelte';
   import UnorderedList from '$lib/List/UnorderedList.svelte';
+  import Recipe from '$lib/recipes/Recipe.svelte';
   import { currentBuilderStatus } from '$lib/stores.js';
-  import { onMount } from "svelte";
+  import { onMount } from 'svelte';
 
   let name: string = $currentBuilderStatus.name;
   let author: AuthorInterface = $currentBuilderStatus.author;
@@ -81,33 +82,35 @@
     input.ingredients = ingredientList;
     input.instructions = instructionList;
     console.log(input);
+    localStorage.setItem('recipe', JSON.stringify(input));
+    console.log(`hey did this write to local storage: ${localStorage.getItem('recipe')}`);
     updateCurrentBuilderRecipe(input);
   };
 
   const onReset = () => {
     currentBuilderStatus.set({
-      "name": '',
-      "author": {name: '', reference: ''},
-      "description": '',
-      "totalTime": 0,
-      "keywords": [],
-      "yield": '',
-      "category": '',
-      "cuisine": '',
-      "nutrition": {
-        "calories": ''
+      name: '',
+      author: { name: '', reference: '' },
+      description: '',
+      totalTime: 0,
+      keywords: [],
+      yield: '',
+      category: '',
+      cuisine: '',
+      nutrition: {
+        calories: ''
       },
-      "ingredients": [],
-      "instructions": []
+      ingredients: [],
+      instructions: []
     });
-    name = ''
-    author = {name: '', reference: ''}
+    name = '';
+    author = { name: '', reference: '' };
     description = '';
     keywordList = [];
     ingredientList = [];
     instructionList = [];
     recipeYield = '';
-  }
+  };
 
   // uses "as any" due to some weird ts issue, fix later i guess
   const updateCurrentBuilderRecipe = (input: any) => {
@@ -129,9 +132,15 @@
     console.log(currentBuilderStatus);
     goto('/builder/your-recipe');
   };
-  
+
   onMount(async () => {
-    onReset();
+    if (localStorage.getItem('recipe')) {
+      console.log(localStorage.getItem('recipe'));
+      // $currentBuilderStatus = JSON.parse(localStorage.getItem('recipe'))
+      // console.log($currentBuilderStatus)
+    } else {
+      onReset();
+    }
   });
 </script>
 

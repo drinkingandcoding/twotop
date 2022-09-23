@@ -6,6 +6,14 @@
 
   const submitRecipe = () => {
     console.log('yay');
+    localStorage.removeItem('recipe');
+    console.log(`cleared localstorage ${localStorage.getItem('key')}`);
+  };
+
+  const editRecipe = () => {
+    console.log('I go edit');
+    console.log(localStorage.getItem('recipe'));
+    goto('/builder');
   };
 </script>
 
@@ -19,7 +27,7 @@
   {#if $currentBuilderStatus.name}
     <Recipe data={$currentBuilderStatus} />
     <Button variant="accent" on:click={submitRecipe}>Submit</Button>
-    <Button on:click={() => goto('/builder')}>Edit</Button>
+    <Button on:click={editRecipe}>Edit</Button>
   {:else}
     <span> no data </span>
   {/if}
