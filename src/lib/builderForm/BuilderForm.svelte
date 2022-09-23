@@ -10,7 +10,9 @@
   import DescriptionTerm from '$lib/List/DescriptionTerm.svelte';
   import ListItem from '$lib/List/ListItem.svelte';
   import UnorderedList from '$lib/List/UnorderedList.svelte';
+  import Recipe from '$lib/recipes/Recipe.svelte';
   import { currentBuilderStatus } from '$lib/stores.js';
+  import { onMount } from 'svelte';
 
   let name: string = $currentBuilderStatus.name;
   let author: AuthorInterface = $currentBuilderStatus.author;
@@ -81,7 +83,34 @@
     input.ingredients = ingredientList;
     input.instructions = instructionList;
     console.log(input);
+    localStorage.setItem('recipe', JSON.stringify(input));
+    console.log(`hey did this write to local storage: ${localStorage.getItem('recipe')}`);
     updateCurrentBuilderRecipe(input);
+  };
+
+  const onReset = () => {
+    currentBuilderStatus.set({
+      name: '',
+      author: { name: '', reference: '' },
+      description: '',
+      totalTime: 0,
+      keywords: [],
+      yield: '',
+      category: '',
+      cuisine: '',
+      nutrition: {
+        calories: ''
+      },
+      ingredients: [],
+      instructions: []
+    });
+    name = '';
+    author = { name: '', reference: '' };
+    description = '';
+    keywordList = [];
+    ingredientList = [];
+    instructionList = [];
+    recipeYield = '';
   };
 
   // uses "as any" due to some weird ts issue, fix later i guess
@@ -104,6 +133,14 @@
     console.log(currentBuilderStatus);
     goto('/builder/your-recipe');
   };
+
+  onMount(async () => {
+    if (localStorage.getItem('recipe')) {
+      console.log(localStorage.getItem('recipe'));
+    } else {
+      onReset();
+    }
+  });
 </script>
 
 <form class="builderForm" on:submit|preventDefault={onSubmit}>
@@ -307,7 +344,7 @@
   <!-- Submit -->
   <section class="formActions">
     <Button formType="submit" variant="accent" class="submitButton">Generate Recipe</Button>
-    <Button formType="reset" class="resetButton">Clear</Button>
+    <Button formType="reset" class="resetButton" on:reset={onReset}>Clear</Button>
   </section>
 </form>
 

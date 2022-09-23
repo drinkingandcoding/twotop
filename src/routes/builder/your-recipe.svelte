@@ -35,13 +35,18 @@
     // const result = json;
     hasSubmittedRecipe = true;
   }
+
+  const editRecipe = () => {
+    console.log('I go edit');
+    console.log(localStorage.getItem('recipe'));
+    goto('/builder');
+  };
 </script>
 
 <svelte:head>
   <title>your recipe | twotop</title>
   <meta name="Builder | twotop" content="twotop builder recipe" />
 </svelte:head>
-
 {#if !hasSubmittedRecipe}
   <section>
     {#if !$isAuthenticated}
@@ -54,7 +59,7 @@
         {#if $isAuthenticated}
           <Button variant="accent" on:click={submitRecipe}>Submit</Button>
         {/if}
-        <Button on:click={() => goto('/builder')}>Edit</Button>
+        <Button on:click={editRecipe}>Edit</Button>
       </div>
     {:else}
       <span> No recipe built, redirecting </span>
