@@ -1,5 +1,4 @@
 <script context="module" lang="ts">
-  export const prerender = true;
   import RecipeList from '$lib/recipes/RecipeList.svelte';
 </script>
 
