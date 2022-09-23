@@ -42,30 +42,33 @@
   <meta name="Builder | twotop" content="twotop builder recipe" />
 </svelte:head>
 
-<section>
-  {#if !$isAuthenticated}
-    <Alert variant="danger">You must be authenticated to submit recipes</Alert>
-  {/if}
+{#if !hasSubmittedRecipe}
+  <section>
+    {#if !$isAuthenticated}
+      <Alert variant="danger">You must be authenticated to submit recipes</Alert>
+    {/if}
 
-  {#if $currentBuilderStatus.name && !hasSubmittedRecipe}
-    <Recipe data={$currentBuilderStatus} />
-    <div class="actions">
-      {#if $isAuthenticated}
-        <Button variant="accent" on:click={submitRecipe}>Submit</Button>
-      {/if}
-      <Button on:click={() => goto('/builder')}>Edit</Button>
-    </div>
-  {:else}
-    <span> No recipe built, redirecting </span>
-  {/if}
+    {#if $currentBuilderStatus.name}
+      <Recipe data={$currentBuilderStatus} />
+      <div class="actions">
+        {#if $isAuthenticated}
+          <Button variant="accent" on:click={submitRecipe}>Submit</Button>
+        {/if}
+        <Button on:click={() => goto('/builder')}>Edit</Button>
+      </div>
+    {:else}
+      <span> No recipe built, redirecting </span>
+    {/if}
+  </section>
+{/if}
 
-  {#if hasSubmittedRecipe}
-    <section class="thanks">
-      <Icon name="check-circle" size="50px" />
-      <span> Thanks for submitting your recipe! </span>
-    </section>
-  {/if}
-</section>
+{#if hasSubmittedRecipe}
+  <section class="thanks">
+    <Icon name="check-circle" size="50px" />
+    <span> Thanks for submitting your recipe! </span>
+    <Button on:click={() => goto('/')}>Home</Button>
+  </section>
+{/if}
 
 <style>
   .actions {
@@ -79,6 +82,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
   }
 
   .thanks :global(svg) {
@@ -86,7 +90,7 @@
   }
 
   .thanks span {
-    margin-top: var(--global-padding-x);
+    margin: var(--global-padding-x) 0;
     letter-spacing: var(--global-letter-spacing);
     text-transform: lowercase;
     font-weight: 500;
