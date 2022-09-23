@@ -7,4 +7,5 @@ export interface UserObjectInterface {
   sub?: string;
   updated_at?: string;
   username?: string;
+  role?: string[];
 }

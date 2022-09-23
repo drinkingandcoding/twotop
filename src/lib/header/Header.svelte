@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
+  import { user } from '$lib/stores';
   import AuthButton from '$lib/auth/authButton.svelte';
   import Logo from '$lib/logo/Logo.svelte';
 </script>
@@ -14,6 +15,11 @@
       <li class:active={$page.url.pathname.includes('/builder')}>
         <a sveltekit:prefetch href="/builder">Builder</a>
       </li>
+      {#if $user?.role?.includes('admin')}
+        <li class:active={$page.url.pathname.includes('/admin')}>
+          <a sveltekit:prefetch href="/admin">admin</a>
+        </li>
+      {/if}
     </ul>
   </nav>
   <div class="brand">
