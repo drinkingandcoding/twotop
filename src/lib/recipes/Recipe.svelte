@@ -16,13 +16,6 @@
     <!-- Title -->
     <h1 class="section recipe_name">{data.name}</h1>
     <div class="banner_bottom">
-      <!-- Ingredients -->
-      <div class="section recipe_keywords">
-        {#each data.keywords as keyword}
-          <Chip {keyword} />
-        {/each}
-      </div>
-
       <!-- Category -->
       {#if data.category}
         <div class="section recipe_category">
@@ -46,7 +39,7 @@
 
       <!-- Yield information -->
       {#if data.yield}
-        <div class="section recipe_author">
+        <div class="section recipe_yield">
           <span>Yields <b>{data.yield}</b> portions</span>
         </div>
       {/if}
@@ -57,6 +50,13 @@
           <span><b>{data.nutrition.calories}</b> Calories</span>
         </div>
       {/if}
+
+      <!-- Ingredients -->
+        <div class="section recipe_keywords">
+          {#each data.keywords as keyword}
+            <Chip {keyword} />
+          {/each}
+        </div>
     </div>
   </div>
 
@@ -108,7 +108,16 @@
     background-attachment: fixed;
     background-size: cover;
     /* background by SVGBackgrounds.com */
-    padding: 8px 4px 2px 4px;
+    padding: 8px 4px 2px 24px;
+    color: var(--white);
+  }
+
+  .banner a, h1 {
+    color: var(--white);
+  }
+
+  .banner .section {
+    margin-bottom:  10px;
   }
 
   .layout {
@@ -116,7 +125,7 @@
     background:  var(--white);
   }
   .layout > div {
-    width: 50%;
+    width: 60%;
     padding: 10px;
   }
   .layout > div:first-child {
@@ -159,23 +168,13 @@
     color: var(--accent);
   }
 
-  .recipe_name,
-  .recipe_author,
-  .recipe_category,
-  .recipe_author a {
-    color: var(--white);
-  }
-  .recipe_author,
-  .recipe_category {
-    padding-left: 6px;
-  }
   .recipe_name {
     font-size: 3rem;
   }
 
   /* Keywords / Chips */
   .recipe_keywords {
-    /*    float:  right;*/
+    /*  float:  right;*/
   }
 
   /* -------------------------------------------------------------------------

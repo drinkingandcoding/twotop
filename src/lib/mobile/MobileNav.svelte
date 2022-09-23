@@ -36,6 +36,7 @@
     border-radius: var(--global-border-radius);
     background: var(--base);
     display: none;
+    z-index: 3;
   }
 
   .mobileNav ul {
