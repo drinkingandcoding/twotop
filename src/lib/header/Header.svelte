@@ -27,7 +27,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
-    background-color: var(--base);
+    background-color: var(--white);
     padding: 12px 12px 0 12px;
   }
 
@@ -61,7 +61,7 @@
     content: '';
     width: 95%;
     height: 2px;
-    background-color: var(--accent);
+    background-color: var(--orange);
     display: block;
   }
 

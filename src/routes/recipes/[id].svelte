@@ -1,8 +1,5 @@
 <script context="module" lang="ts">
-  export const prerender = true;
   import Recipe from '$lib/recipes/Recipe.svelte';
-  // import entire JSON file as a default import
-  import recipe from '$lib/data/biscuits.json';
 </script>
 
 <svelte:head>
@@ -11,7 +8,7 @@
 </svelte:head>
 
 <section>
-  <Recipe data={recipe} />
+  <Recipe />
 </section>
 
 <style>

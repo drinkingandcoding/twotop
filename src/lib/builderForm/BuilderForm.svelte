@@ -23,7 +23,8 @@
   let recipeYield: string = $currentBuilderStatus.yield;
   let category: string = $currentBuilderStatus.category;
   let cuisine: string = $currentBuilderStatus.cuisine;
-  let calories: NutritionInterface = $currentBuilderStatus.nutrition;
+  let calories: string = $currentBuilderStatus.nutrition.calories;
+  let totalTime: number = $currentBuilderStatus.totalTime;
 
   // Keywords
   let keyword: string;
@@ -118,13 +119,13 @@
       name: name, // done
       author: author, // done
       description: description, // done
-      totalTime: input.totalTime,
+      totalTime: totalTime, // done
       keywords: keywordList as any, // done
       yield: recipeYield, // done
-      category: input.category, // done
-      cuisine: input.cuisine, // done
+      category: category, // done
+      cuisine: cuisine, // done
       nutrition: {
-        calories: input.nutritionCalories
+        calories: calories // done
       },
       ingredients: ingredientList as any, // done
       instructions: instructionList as any // done
@@ -242,20 +243,43 @@
 
   <!-- Yield -->
   <div class="formGroup">
-    <label class="formLabel" for="yield">Yield</label>
-    <input class="formInput" id="yield" name="yield" bind:value={recipeYield} placeholder="4" />
+    <label class="formLabel" for="yield">total yield</label>
+    <input
+      class="formInput"
+      id="yield"
+      name="yield"
+      bind:value={recipeYield}
+      placeholder="4"
+      type="number"
+    />
+  </div>
+
+  <!-- Total Time -->
+  <div class="formGroup">
+    <label class="formLabel" for="totalTime">Total Time</label>
+    <input
+      class="formInput"
+      id="totalTime"
+      name="totalTime"
+      bind:value={totalTime}
+      placeholder="50"
+      type="number"
+    />
+    <span class="formInputDescripter">minutes</span>
   </div>
 
   <!-- Calories -->
   <div class="formGroup">
-    <label class="formLabel" for="yield">Calories</label>
+    <label class="formLabel" for="yield">Calories for dish</label>
     <input
       class="formInput"
       id="calories"
       name="calories"
-      bind:value={calories.calories}
+      bind:value={calories}
       placeholder="500"
+      type="number"
     />
+    <span class="formInputDescripter">calories</span>
   </div>
 
   <!-- Ingredients -->
@@ -266,7 +290,7 @@
       id="ingredients"
       name="ingredients"
       bind:value={ingredient}
-      placeholder="1 cup (2 sticks|255 grams) plus 2 tablespoons unsalted butter"
+      placeholder="1 cup unsalted butter"
     />
     <Button formType="button" class="formButton" on:click={handleAddIngredient}>Add</Button>
     {#if ingredientList.length}
@@ -360,6 +384,15 @@
 
   .builderForm :global(.unorderedList) {
     margin-bottom: 0;
+  }
+
+  .formInputDescripter {
+    display: flex;
+    align-self: center;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: var(--global-letter-spacing);
+    margin-left: var(--global-padding-y);
   }
 
   .formActions {

@@ -4,6 +4,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 
   .logo {
+    color: var(--orange);
     font-family: 'Nanum Pen Script', cursive;
     font-size: 1.5rem;
     text-transform: lowercase;
