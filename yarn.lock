@@ -2026,6 +2026,11 @@ svelte-search@^1.1.0:
   resolved "https://registry.yarnpkg.com/svelte-search/-/svelte-search-1.1.0.tgz#c41cc089a6a15d40911912d7ce497e6ae49d2150"
   integrity sha512-e5hci9fZPMXb3fuRZvcYJGqh448M8vV3biY4lN4Nr9fqrG/HBnTjWYstKb399aUe9tsBxRbxRAWgtKicisL23g==
 
+svelte-simple-modal@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/svelte-simple-modal/-/svelte-simple-modal-1.4.1.tgz#1f5c23df26619a2a7f262b5259287b9497b9d19a"
+  integrity sha512-em/uxH1xvQZoXTOq81Kk0u9ltjf/EyQkNiKTQJQmdCygDMqyUfMCFzLnbIQ4ApfV4BcRh6eYbwbCeeWTOyfpsg==
+
 svelte-typeahead@^4.3.2:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/svelte-typeahead/-/svelte-typeahead-4.3.2.tgz#52efd89acc5a41e34d778c8284f95007081aecc7"

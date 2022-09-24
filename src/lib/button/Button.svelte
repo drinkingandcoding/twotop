@@ -1,6 +1,6 @@
 <script lang="ts">
   export let formType: string | undefined = undefined;
-  export let variant: string = 'primary';
+  export let variant: 'primary' | 'link' | 'accent' | 'success' | 'danger' = 'primary';
 </script>
 
 <button class={`${variant} ${$$props.class}`} type={formType} on:click><slot /></button>
@@ -46,5 +46,24 @@
   button.accent:focus {
     background-color: var(--accent);
     color: var(--white);
+  }
+
+  button.danger {
+    background-color: hsla(var(--red-hue), 95%, 92%);
+    outline: 1px solid hsla(var(--red-hue), 95%, 80%);
+  }
+
+  button.danger:hover,
+  button.danger:focus {
+    background-color: hsla(var(--red-hue), 95%, 85%);
+  }
+
+  button.success {
+    background-color: hsla(var(--green-hue), 95%, 92%);
+    outline: 1px solid hsla(var(--green-hue), 95%, 80%);
+  }
+  button.success:hover,
+  button.success:focus {
+    background-color: hsla(var(--green-hue), 95%, 85%);
   }
 </style>
