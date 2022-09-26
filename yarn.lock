@@ -1221,6 +1221,18 @@ grapheme-splitter@^1.0.4:
   resolved "https://registry.yarnpkg.com/grapheme-splitter/-/grapheme-splitter-1.0.4.tgz#9cf3a665c6247479896834af35cf1dbb4400767e"
   integrity sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==
 
+gridjs-svelte@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/gridjs-svelte/-/gridjs-svelte-2.1.1.tgz#1356ed519aafe20ffd1c8195945e4ac598e2d3ec"
+  integrity sha512-tYkgdqNKSnfmAYYc8EP4axn/Xlugp7VLwAlpNkP4SBLHHYD/ejD2DJ+FMatDNqcJ1Z1kuMnJWO+VBcAOirEByw==
+
+gridjs@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/gridjs/-/gridjs-5.1.0.tgz#77563e766c1faf6e8042577404098bb05ec514d0"
+  integrity sha512-ElT4RccHVZXR6mAn0Neh7jRv0yLPYLl9tWr9EC1tIJ7UC035kScGc/VMSJlPmOTyUU6qPUz1mtmzg/i8+IT24g==
+  dependencies:
+    preact "^10.10.6"
+
 has-flag@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-4.0.0.tgz#944771fd9c81c81265c4d6941860da06bb59479b"
@@ -1693,6 +1705,11 @@ postcss@^8.4.16:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
+preact@^10.10.6:
+  version "10.11.0"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.11.0.tgz#26af45a0613f4e17a197cc39d7a1ea23e09b2532"
+  integrity sha512-Fk6+vB2kb6mSJfDgODq0YDhMfl0HNtK5+Uc9QqECO4nlyPAQwCI+BKyWO//idA7ikV7o+0Fm6LQmNuQi1wXI1w==
+
 prelude-ls@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
@@ -2008,6 +2025,11 @@ svelte-search@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/svelte-search/-/svelte-search-1.1.0.tgz#c41cc089a6a15d40911912d7ce497e6ae49d2150"
   integrity sha512-e5hci9fZPMXb3fuRZvcYJGqh448M8vV3biY4lN4Nr9fqrG/HBnTjWYstKb399aUe9tsBxRbxRAWgtKicisL23g==
+
+svelte-simple-modal@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/svelte-simple-modal/-/svelte-simple-modal-1.4.1.tgz#1f5c23df26619a2a7f262b5259287b9497b9d19a"
+  integrity sha512-em/uxH1xvQZoXTOq81Kk0u9ltjf/EyQkNiKTQJQmdCygDMqyUfMCFzLnbIQ4ApfV4BcRh6eYbwbCeeWTOyfpsg==
 
 svelte-typeahead@^4.3.2:
   version "4.3.2"

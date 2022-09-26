@@ -48,7 +48,7 @@
 
       <!-- Yield information -->
       {#if data.yield}
-        <div class="section recipe_author">
+        <div class="section recipe_yield">
           <span>Yields <b>{data.yield}</b> portions</span>
         </div>
       {/if}
@@ -162,12 +162,16 @@
   }
 
   .recipe_name,
+  .recipe_nutrition,
+  .recipe_yield,
   .recipe_author,
   .recipe_category,
   .recipe_author a {
     color: var(--white);
   }
   .recipe_author,
+  .recipe_nutrition,
+  .recipe_yield,
   .recipe_category {
     padding-left: 6px;
   }

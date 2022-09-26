@@ -20,7 +20,6 @@
       .then((data) => {
         recipe.set(data);
         isLoading = false;
-        console.log(recipe);
       })
       .catch((error) => {
         console.log(error);
