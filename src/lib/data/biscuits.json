@@ -6,7 +6,8 @@
   },
   "description": "Biscuits for biscuits and gravy",
   "keywords": ["biscuit", "bread", "breakfast"],
-  "yield": "6 biscuits",
+  "totalTime": "100",
+  "yield": "6",
   "category": "Bread",
   "cuisine": "American",
   "ingredients": [

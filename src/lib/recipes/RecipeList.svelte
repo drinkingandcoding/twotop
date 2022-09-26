@@ -37,9 +37,11 @@
   {/if}
 
   {#if !isLoading && $recipeList.length}
-    {#each $recipeList as recipe}
-      <a href={`recipes/${recipe.ID}`}> {recipe.name} </a>
-    {/each}
+    <ul>
+      {#each $recipeList as recipe}
+        <li><a href={`recipes/${recipe.ID}`}> {recipe.name} </a></li>
+      {/each}
+    </ul>
   {/if}
 
   {#if !isLoading && !isError && !$recipeList.length}

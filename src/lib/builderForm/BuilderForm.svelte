@@ -18,10 +18,11 @@
   let keywordList: string[] = $currentBuilderStatus.keywords;
   let ingredientList: string[] = $currentBuilderStatus.ingredients;
   let instructionList: InstructionsInterface[] = $currentBuilderStatus.instructions;
-  let recipeYield: string = $currentBuilderStatus.yield;
+  // let recipeYield: string = $currentBuilderStatus.yield;
+  let recipeYield: string = '2';
   let category: string = $currentBuilderStatus.category;
   let cuisine: string = $currentBuilderStatus.cuisine;
-  let calories: string = $currentBuilderStatus.nutrition.calories;
+  let calories: string = $currentBuilderStatus.nutrition.calories.toString();
   let totalTime: number = $currentBuilderStatus.totalTime;
 
   // Keywords
@@ -233,7 +234,7 @@
 
   <!-- Calories -->
   <div class="formGroup">
-    <label class="formLabel" for="yield">Calories for dish</label>
+    <label class="formLabel" for="calories">Calories for dish</label>
     <input
       class="formInput"
       id="calories"
